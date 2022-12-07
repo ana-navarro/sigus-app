@@ -216,7 +216,7 @@ export const AddAddress = () => {
                     </FormContent>
                 </Box>
                 <AddressButtonGroup>
-                    <SubmitButton onClick={handleSubmit(onSubmit)} disabled={!street || !number || !block || !city || !state || !country || !postalCode}>Adicionar</SubmitButton>
+                    <SubmitButton data-testid="add-address-btn" onClick={handleSubmit(onSubmit)} disabled={!street || !number || !block || !city || !state || !country || !postalCode}>Adicionar</SubmitButton>
                 </AddressButtonGroup>
             </FormBody>
         </>

@@ -162,10 +162,10 @@ export const EditAddress = () => {
     return (
         <>
             <ToastContainer />
-            <FormBody>
-                <FormTitle>Editar Endereço</FormTitle>
+            <FormBody data-testid="edit-address-form">
+                <FormTitle aria-label='Editar Endereço'>Editar Endereço</FormTitle>
                 <FormContent>
-                    <FormLabel>CEP:</FormLabel>
+                    <FormLabel aria-label='CEP'>CEP:</FormLabel>
                     <PostalCodeInput {...register("postalCode")} type="number" placeholder="CEP" onChange={(e) => setPostalCode(e.target.value)} onBlur={buscarCep} required ref={postalCodeRef} />
                 </FormContent>
 
@@ -182,6 +182,7 @@ export const EditAddress = () => {
                             {...register("street")}
                             InputLabelProps={{ shrink: true }}
                             label='Rua'
+                            aria-label='Rua da Empresa'
                             type="text"
                             placeholder="Rua"
                             onChange={handleStreetChange}
@@ -192,6 +193,7 @@ export const EditAddress = () => {
                         <NumberInput
                             {...register("number")}
                             label='Número'
+                            aria-label='Número da Empresa'
                             InputLabelProps={{ shrink: true }}
                             type="text"
                             placeholder="Número"
@@ -206,6 +208,7 @@ export const EditAddress = () => {
                         <BlockInput
                             {...register("block")}
                             label='Bairro'
+                            aria-label='Bairro da Empresa'
                             InputLabelProps={{ shrink: true }}
                             type="text"
                             onChange={handleblockChange}
@@ -219,6 +222,7 @@ export const EditAddress = () => {
                         <MoreInfoInput
                             {...register("moreInfo")}
                             label='Complemento'
+                            aria-label='Complemento da Empresa'
                             InputLabelProps={{ shrink: true }}
                             type="text"
                             placeholder="Complemento"
@@ -232,6 +236,7 @@ export const EditAddress = () => {
                             type="text"
                             InputLabelProps={{ shrink: true }}
                             label='Cidade'
+                            aria-label='Cidade da Empresa'
                             placeholder="Cidade"
                             onChange={handlecityChange}
                             error={city === ""}
@@ -243,6 +248,7 @@ export const EditAddress = () => {
                             type="text"
                             InputLabelProps={{ shrink: true }}
                             label='UF'
+                            aria-label='Estado (UF) da Empresa'
                             placeholder="Estado"
                             onChange={handlestateChange}
                             error={state === ""}
@@ -255,6 +261,7 @@ export const EditAddress = () => {
                             label='País'
                             InputLabelProps={{ shrink: true }}
                             placeholder="País"
+                            aria-label='País da Empresa'
                             inputRef={countryRef}
                             onChange={handlecountryChange}
                             error={country === ""}
@@ -263,7 +270,7 @@ export const EditAddress = () => {
                     </FormContent>
                 </Box>
                 <AddressButtonGroup>
-                    <SubmitButton onClick={handleSubmit(handleOpenModal)} disabled={!street || !number || !block || !city || !state || !country || !postalCode}>Adicionar</SubmitButton>
+                    <SubmitButton aria-label='Editar Empresa' data-testid="edit-address-btn" onClick={handleSubmit(handleOpenModal)} disabled={!street || !number || !block || !city || !state || !country || !postalCode}>Adicionar</SubmitButton>
                 </AddressButtonGroup>
             </FormBody>
         </>

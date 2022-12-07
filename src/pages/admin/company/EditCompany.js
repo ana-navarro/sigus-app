@@ -25,30 +25,17 @@ export const EditCompany = () => {
 
     useEffect(() => {
         const getCompany = async () => {
-            await axios.get(`http://localhost:5000/api/company/${id.idCompany}`)
-                .then(res => {
-                    setName(res.data.company.name);
-                    setPhone(res.data.company.phone);
-                    setCnpj(res.data.company.cnpj);
-                });
+            try {
+                const res = await axios.get(`http://localhost:5000/api/company/${id.idCompany}`)
+                setName(res.data.company.name);
+                setPhone(res.data.company.phone);
+                setCnpj(res.data.company.cnpj);
+            } catch (error) {
+                console.log(error)
+            }
         }
         getCompany();
     }, [])
-
-    useEffect(() => {
-        const getData = async () => {
-            await axios.get(`http://localhost:5000/api/company/${id}/edit`)
-                .then(res => {
-                    setName(res.data.company.name);
-                    setPhone(res.data.company.phone);
-                    setCnpj(res.data.company.cnpj);
-                }).catch(err => {
-                    console.log(err)
-                });
-
-        }
-        getData()
-    }, []);
 
 
     useEffect(() => {
@@ -93,15 +80,17 @@ export const EditCompany = () => {
     }
 
     const handleSubmit = async (id) => {
-        const company = {
-            name, cnpj, phone
-        }
-        await axios.put(
-            `http://localhost:5000/api/company/${id.idCompany}/edit`,
-            company,
-        ).then(res => {
+        try {
+            const company = {
+                name, cnpj, phone
+            }
+            const res = await axios.put(`http://localhost:5000/api/company/${id.idCompany}/edit`, company);
+            toast.dismiss();
+            toast.success(res.data.msg);
             navigate(`/company`);
-        }).catch(err => console.log(err));
+        } catch (error) {
+            console.log(error)
+        }
     }
 
     return (

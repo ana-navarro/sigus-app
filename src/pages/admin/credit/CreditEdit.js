@@ -179,7 +179,6 @@ export const EditCredit = () => {
             const res = await axios.put(`http://localhost:5000/api/credit/${id.idCredit}/edit`, updatedCredit);
             toast.dismiss();
             toast.success(res.data.msg);
-            console.log(updatedCredit)
             navigate(`/credit/`);
         } catch (error) {
             console.log(error);
