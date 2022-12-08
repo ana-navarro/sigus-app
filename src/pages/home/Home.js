@@ -5,52 +5,71 @@ export const Home = () => {
     return (
         <>
             <div className='text-center mt-4'>
-                <h3>Sobre a Minera Engenharia</h3>
-                <MineraImage src={'https://scontent.fmoc2-1.fna.fbcdn.net/v/t39.30808-6/239606813_1174076909734874_4735385665080596059_n.png?_nc_cat=108&ccb=1-7&_nc_sid=09cbfe&_nc_eui2=AeEZrlIhlsyMYdoL3gOMuMF_rO4Eoy060lis7gSjLTrSWOTkbUElBL5k1TVz5-vfl3JQkUgr33yTm6GrseT1U5-C&_nc_ohc=f479NREvlA4AX9aS8RZ&_nc_ht=scontent.fmoc2-1.fna&oh=00_AfBW57A_uytgA7uxEIUDgbw1a2H100RtBtwfxfDzlfyuRA&oe=63883995'} />
+                <h3 data-testid='about-minera'>Sobre a Minera Engenharia</h3>
+                <MineraImage data-testid='about-minera-logo' alt='minera-logo' src={'https://scontent.fmoc2-1.fna.fbcdn.net/v/t39.30808-6/239606813_1174076909734874_4735385665080596059_n.png?_nc_cat=108&ccb=1-7&_nc_sid=09cbfe&_nc_eui2=AeEZrlIhlsyMYdoL3gOMuMF_rO4Eoy060lis7gSjLTrSWOTkbUElBL5k1TVz5-vfl3JQkUgr33yTm6GrseT1U5-C&_nc_ohc=f479NREvlA4AX9aS8RZ&_nc_ht=scontent.fmoc2-1.fna&oh=00_AfBW57A_uytgA7uxEIUDgbw1a2H100RtBtwfxfDzlfyuRA&oe=63883995'} />
             </div>
 
-            <AboutText>
-                <p>
+            <AboutText data-testid='about-minera-text'>
+                <p aria-label='A Minera Engenharia, fundada em 2014, fornece diversas soluções em geração de Energia Solar e Eficiência Energética, apresentando em seu DNA a inovação e a sustentabilidade.'>
                     A Minera Engenharia, fundada em 2014, fornece diversas soluções em geração de Energia Solar e Eficiência Energética,
                     apresentando em seu DNA a inovação e a sustentabilidade.
                 </p>
-                <p>
+                <p aria-label='Desde a sua fundação, a empresa se diferencia prestando serviços de Engenharia de alto nível técnico na Construção,
+                        Manutenção e Comissionamento de Usinas e Parques Solares e Projetos de Eficiência Energética, visando à harmonização entre
+                        tecnologia e o meio ambiente, sem esquecer-se do ser humano.'>
                     Desde a sua fundação, a empresa se diferencia prestando serviços de Engenharia de alto nível técnico na Construção,
                     Manutenção e Comissionamento de Usinas e Parques Solares e Projetos de Eficiência Energética, visando à harmonização entre
                     tecnologia e o meio ambiente, sem esquecer-se do ser humano.
                 </p>
-                <p>
+                <p aria-label='Com o auxílio de equipamentos de última geração operando dentro dos padrões e normas interacionais e nacionais e com corpo
+                    técnico altamente qualificado, a Minera Engenharia oferece soluções em Eficiência Energética e serviços para Usinas Fotovoltaicas, tais como:'>
                     Com o auxílio de equipamentos de última geração operando dentro dos padrões e normas interacionais e nacionais e com corpo
                     técnico altamente qualificado, a Minera Engenharia oferece soluções em Eficiência Energética e serviços para Usinas Fotovoltaicas, tais como:
                 </p>
-                <ul>
-                    <li>Projeto;</li>
-                    <li>Implantação;</li>
-                    <li>Comercialização;</li>
-                    <li>Consultoria e Inspeção;</li>
-                    <li>Comissionamento;</li>
-                    <li>Operação e Manutenção (O&M).</li>
+                <ul data-testid='about-minera-functions'>
+                    <li aria-label='Projeto'>Projeto;</li>
+                    <li aria-label='Implantação'>Implantação;</li>
+                    <li aria-label='Comercialização'>Comercialização;</li>
+                    <li aria-label='Consultoria e Inspeção'>Consultoria e Inspeção;</li>
+                    <li aria-label='Comissionamento'>Comissionamento;</li>
+                    <li aria-label='Operação e Manutenção (O&M).'>Operação e Manutenção (O&M).</li>
                 </ul>
                 <p>
                     Apesar de ser jovem, a empresa atualmente possui um portfólio bem extenso de obras executadas em Usinas de Energia Solar, com quase 15MW instalados.
                 </p>
             </AboutText>
 
-            <div className='text-center mt-4'>
+            <div className='text-center mt-4' data-testid='about-sigus-header'>
                 <h3>Sobre o SIGUS</h3>
             </div>
 
-            <AboutText>
-                <p>
-                    O projeto SIGUS, tem como objetivo ajudar a empresa a Minera Engenharia na parte de gestão de relatórios financeiros e técnicos,
-                    e também auxiliar na parte de análise de dados vindos dos parques solares. Atualmente, não possui um sistema que unifica a parte
-                    de gestão financeira (geração de pagamentos para o cliente pagar) e a parte de geração de energia (relatório técnico sobre quanto
-                    de energia a empresa cliente gastou e gerou). Para criarem os relatórios técnicos, nos dias de hoje, se utiliza o Microsoft Word
-                    para gerar o documento com as informações de quanta energia foi gerada, consumida e restante a partir do número de instalação.
-                    Para criarem os relatórios financeiros, eles acessam o aplicativo do banco e assim geram um link para pagamento para o cliente.
-                    A ideia principal do sistema SIGUS é auxiliar na geração dos relatórios técnicos e financeiros, e unir essas duas áreas de atuação
-                    dentro da empresa minera. Com as informações contidas no relatório técnico também é possível gerar gráficos que ajudam no processo
-                    de decisão dos engenheiros. Assim, através do sistema SIGUS a Minera Engenharia conseguirá unir duas áreas e também aumentar a produtividade.
+            <AboutText data-testid='about-sigus'>
+                <p aria-label='Um dos segmentos que mais cresce atualmente é sobre energia renovável, sendo uma delas, a geração de energia solar. Com o crescimento deste ramo, é necessário a criação de um sistema eficiente para a manutenção dos painéis e inversores e também para geração de relatórios técnicos e financeiros. Atualmente não existe um sistema capaz de gerenciar todos os módulos de uma empresa que provê este tipo de serviço. Assim sendo, as empresas que oferecem os serviços de energia solar, sofrem com o uso de vários aplicativos distintos, e com registros de dados espalhados pelos os aplicativos. Diante desta situação, e com o crescimento do mercado, visto que o mundo está procurando uma abordagem mais saudável para o meio ambiente, foi-se necessário procurar uma metodologia para unificar os registros de dados em somente uma plataforma. Através desta metodologia e com o uso de tecnologias usadas por grandes empresas de desenvolvimento, é possível facilitar e agilizar ainda mais os processos de produção de energia solar. A vista disto, foi-se elaborado o projeto SIGUS,  que foi dividido em três módulos, o módulo de manutenção, responsável pela a parte de relatórios de manutenção, módulo de captação de dados, responsável por captar os dados e guardar em um sistema de banco de dados, e o último módulo seria a geração de relatórios técnicos e financeiros. Neste documento será mostrado o módulo responsável pela criação de relatórios técnicos e financeiros. '>
+                    Um dos segmentos que mais cresce atualmente é sobre energia
+                    renovável, sendo uma delas, a geração de energia solar.
+                    Com o crescimento deste ramo, é necessário a criação de um
+                    sistema eficiente para a manutenção dos painéis e inversores
+                    e também para geração de relatórios técnicos e financeiros.
+                    Atualmente não existe um sistema capaz de gerenciar todos
+                    os módulos de uma empresa que provê este tipo de serviço.
+                    Assim sendo, as empresas que oferecem os serviços de
+                    energia solar, sofrem com o uso de vários aplicativos
+                    distintos, e com registros de dados espalhados pelos os
+                    aplicativos. Diante desta situação, e com o crescimento
+                    do mercado, visto que o mundo está procurando uma abordagem
+                    mais saudável para o meio ambiente, foi-se necessário
+                    procurar uma metodologia para unificar os registros de
+                    dados em somente uma plataforma. Através desta metodologia e
+                    com o uso de tecnologias usadas por grandes empresas de
+                    desenvolvimento, é possível facilitar e agilizar ainda
+                    mais os processos de produção de energia solar. A vista disto,
+                    foi-se elaborado o projeto SIGUS,  que foi dividido em três
+                    módulos, o módulo de manutenção, responsável pela a parte de
+                    relatórios de manutenção, módulo de captação de dados,
+                    responsável por captar os dados e guardar em um sistema de
+                    banco de dados, e o último módulo seria a geração de relatórios
+                    técnicos e financeiros. Neste documento será mostrado o módulo
+                    responsável pela criação de relatórios técnicos e financeiros.
                 </p>
             </AboutText>
 

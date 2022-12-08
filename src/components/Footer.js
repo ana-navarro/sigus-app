@@ -1,5 +1,5 @@
 import React from 'react'
-import {  Row, Col } from 'react-bootstrap'
+import { Row, Col } from 'react-bootstrap'
 import "./style.css"
 
 export const Footer = () => {
@@ -7,7 +7,7 @@ export const Footer = () => {
         <div>
             <footer>
                 <Row>
-                    <Col className='container fixed bottom-0 text-center py-3'>Copyright &copy; SIGUS/Minera Engenharia</Col>
+                    <Col className='container fixed bottom-0 text-center py-3' data-testid='copyright-footer' aria-label='Copyright Minera Enegenharia'>Copyright &copy; SIGUS/Minera Engenharia</Col>
                 </Row>
             </footer>
         </div>

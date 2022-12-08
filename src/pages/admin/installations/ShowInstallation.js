@@ -39,15 +39,15 @@ export const ShowInstallation = () => {
         <>
             <ToastContainer />
             <ShowTitle>
-                <ShowName>Número de Instalação: {installation.numberInstallation}</ShowName>
-                <EditButton>
+                <ShowName data-testid="show-installation" aria-label={`Número de Instalação ${installation.numberInstallation}`}>Número de Instalação: {installation.numberInstallation}</ShowName>
+                <EditButton data-testid="show-installation-edit-btn" aria-label="Editar número de instalação">
                     <UnstyledLinks to={`/installations/${installation._id}/edit`}>Editar</UnstyledLinks>
                 </EditButton>
-                <DeleteButton>
+                <DeleteButton data-testid="show-installation-delete-btn" aria-label="Deletar número de instalação">
                     <UnstyledLinks to={`/installations/${installation._id}/delete`}>Excluir</UnstyledLinks>
                 </DeleteButton>
             </ShowTitle>
-            <ShowInfo>
+            <ShowInfo data-testid="show-installation-company" aria-label={`Empresa ${companyName}`}>
                 <p>Empresa: <Link to={`/company/${company}`}>{companyName}</Link> </p>
             </ShowInfo>
         </>

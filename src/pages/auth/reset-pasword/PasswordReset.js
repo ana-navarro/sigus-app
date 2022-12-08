@@ -17,11 +17,11 @@ export const PasswordReset = () => {
         e.preventDefault();
 
         if (email === "") {
-            toast.error("email is required!", {
+            toast.error("Email é necessário!", {
                 position: "top-center"
             });
         } else if (!email.includes("@")) {
-            toast.warning("includes @ in your email!", {
+            toast.warning("Endereço de Email Inválido", {
                 position: "top-center"
             });
         } else {
@@ -33,7 +33,7 @@ export const PasswordReset = () => {
                 setMessage(true)
                 navigate('/')
             } else {
-                toast.error("Invalid User", {
+                toast.error("Usúario Inválido", {
                     position: "top-center"
                 })
                 navigate('/')
@@ -48,11 +48,11 @@ export const PasswordReset = () => {
                 <div className="card o-hidden border-3 shadow-lg my-5">
                     <div className="card-body p-0">
                         <div className="row">
-                            <div className="col-lg-6 d-none d-lg-block bg-login-image"></div>
+                            <div className="col-lg-6 d-none d-lg-block bg-login-image" data-testid='reset-password-img' alt='Painel Solar'></div>
                             <div className="col-lg-6">
                                 <div className="p-5">
                                     <div className="text-center">
-                                        <h1 className="h4 text-gray-900 mb-4">
+                                        <h1 className="h4 text-gray-900 mb-4" data-testid='reset-password-email' aria-label='Insira o Email Cadastrado'>
                                             Insira o Email Cadastrado
                                         </h1>
                                     </div>
@@ -62,6 +62,8 @@ export const PasswordReset = () => {
                                             type="email"
                                             onChange={(e) => setEmail(e.target.value)}
                                             placeholder="Email"
+                                            data-testid='reset-password-email-input'
+                                            aria-label='Campo do Email'
                                             InputLabelProps={{ shrink: true }}
                                             value={email}
                                             variant="filled"
@@ -77,12 +79,14 @@ export const PasswordReset = () => {
                                                 className="btn btn-primary btn-user btn-block"
                                                 onClick={sendLink}
                                                 disabled={!email}
+                                                data-testid='reset-password-btn'
+                                                aria-label='Enviar link de Reset de senha'
                                             >
                                                 Enviar
                                             </button>
                                         </div>
                                         <div className="text-center pt-4">
-                                            <a className="small" href="/">
+                                            <a className="small" href="/" data-testid='reset-password-go-back' aria-label='Voltar para página inicial'>
                                                 Voltar para a página inicial
                                             </a>
                                         </div>

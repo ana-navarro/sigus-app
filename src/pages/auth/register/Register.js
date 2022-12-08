@@ -45,7 +45,7 @@ export const Register = () => {
     <>
       <ToastContainer />
       <FormBody>
-        <FormTitle>Adicionar novo Admin:</FormTitle>
+        <FormTitle aria-label="Adicionar Usuário">Adicionar novo Admin:</FormTitle>
 
         <InputGroup>
           <GenericInput
@@ -53,7 +53,9 @@ export const Register = () => {
             onChange={(e) => setName(e.target.value)}
             placeholder="Nome"
             InputLabelProps={{ shrink: true }}
+            aria-label="Nome do Administrador"
             value={name}
+            data-testid="register-name"
             variant="filled"
             error={name === ""}
             helperText={name === "" ? "Nome não pode ser vázio!." : ''}
@@ -66,11 +68,13 @@ export const Register = () => {
         <InputGroup>
           <GenericInput
             type="email"
+            data-testid="register-email"
             onChange={(e) => setEmail(e.target.value)}
             placeholder="Email"
             InputLabelProps={{ shrink: true }}
             value={email}
             variant="filled"
+            aria-label="Email ao Administrador"
             error={email === ""}
             helperText={email === "" ? "Email não pode ser vázio!." : ''}
             label="Email"
@@ -83,10 +87,12 @@ export const Register = () => {
         <InputGroup>
           <GenericInput
             type={'password'}
+            data-testid="register-password"
             onChange={(e) => setPassword(e.target.value)}
             placeholder="Senha"
             InputLabelProps={{ shrink: true }}
             value={password}
+            aria-label="Senha do Administrador"
             variant="filled"
             error={password === ""}
             helperText={password === "" ? "Senha não pode ser vázia!." : ''}
@@ -99,11 +105,13 @@ export const Register = () => {
         <InputGroup>
           <GenericInput
             type={'password'}
+            data-testid="register-confirm-password"
             onChange={(e) => setConfirmPassword(e.target.value)}
             placeholder="Confirmar Senha"
             InputLabelProps={{ shrink: true }}
             value={confirmPassword}
             variant="filled"
+            aria-label="Confirmar Senha do Administrador"
             error={confirmPassword === ""}
             helperText={confirmPassword === "" ? "Confirmar Senha não pode ser vázio!." : ''}
             label="Confirmar Senha"
@@ -113,7 +121,7 @@ export const Register = () => {
         </InputGroup>
 
         <ButtonGroup>
-          <SubmitButton onClick={handleSubmit} disabled={!name || !email || !password || !confirmPassword}>Criar Admin</SubmitButton>
+          <SubmitButton data-testid="register-btn" aria-label="Adicionar Administrador" onClick={handleSubmit} disabled={!name || !email || !password || !confirmPassword}>Criar Admin</SubmitButton>
         </ButtonGroup>
       </FormBody>
     </>

@@ -36,12 +36,8 @@ export const AddInstallation = () => {
 
     useEffect(() => {
         const fetchTechnical = async () => {
-            const res = await fetch('http://localhost:5000/api/company/');
-            const json = await res.json();
-
-            if (res.ok) {
-                setCompanies(json);
-            }
+            const res = await axios.get('http://localhost:5000/api/company/');
+            setCompanies(res.data);
         };
         fetchTechnical();
     }, []);
@@ -49,11 +45,13 @@ export const AddInstallation = () => {
     return (
         <>
             <ToastContainer />
-            <FormBody>
+            <FormBody data-testid="add-installation-form">
                 <FormTitle>Adicionar Número de Instalação:</FormTitle>
                 <InputGroup>
                     <GenericInput
                         type="number"
+                        aria-label='Adicionar Número de Instalação'
+                        data-testid="add-installation-number"
                         placeholder="Número de Instalação"
                         label="Número de Instalação"
                         InputLabelProps={{ shrink: true }}
@@ -72,6 +70,8 @@ export const AddInstallation = () => {
                     <Select
                         variant="filled"
                         labelId="Empresa"
+                        aria-label='Adicionar Empresa'
+                        data-testid="add-installation-company"
                         placeholder="Empresa"
                         onChange={handleChangeCompany}
                         InputLabelProps={{ shrink: true }}
@@ -81,13 +81,13 @@ export const AddInstallation = () => {
                         required
                     >
                         {companies && companies.map(({ _id, name }) => (
-                            <MenuItem key={_id} value={_id}>{name}</MenuItem>
+                            <MenuItem aria-label={`${name}`} key={_id} value={_id}>{name}</MenuItem>
                         ))}
                     </Select>
                 </InputGroup>
 
                 <ButtonGroup>
-                    <SubmitButton onClick={handleSubmit} disabled={!numberInstallation || !idCompany}>Enviar</SubmitButton>
+                    <SubmitButton data-testid="add-installation-submit-btn" aria-label='Adicionar Botão' onClick={handleSubmit} disabled={!numberInstallation || !idCompany}>Enviar</SubmitButton>
                 </ButtonGroup>
             </FormBody>
         </>

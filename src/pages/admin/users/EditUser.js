@@ -87,12 +87,14 @@ export const EditUser = () => {
       {show && handleOpenModal()}
       {!show && (
         <div>
-          <h3 className="text-center p-4">Editar Administrador</h3>
+          <h3 className="text-center p-4" aria-label={`Editar Administrador ${name}`}>Editar Administrador</h3>
           <FormBody>
             <FormContent>
               <GenericInput
                 label="Nome"
                 variant='filled'
+                aria-label={`Editar o nome ${name}`}
+                data-testid="edit-user-name"
                 value={name}
                 InputLabelProps={{ shrink: true }}
                 placeholder="Nome"
@@ -107,7 +109,9 @@ export const EditUser = () => {
               <GenericInput
                 label="Email"
                 variant='filled'
+                aria-label={`Editar o email ${email}`}
                 value={email}
+                data-testid="edit-user-email"
                 InputLabelProps={{ shrink: true }}
                 placeholder="Email"
                 inputRef={emailRef}
@@ -119,8 +123,8 @@ export const EditUser = () => {
             </FormContent>
 
             <FormButton>
-              <SubmitButton onClick={showModal}>
-                Enviar
+              <SubmitButton onClick={showModal} aria-label="Editar" data-testid="edit-user-btn">
+                Editar
               </SubmitButton>
             </FormButton>
           </FormBody>

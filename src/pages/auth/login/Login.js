@@ -38,19 +38,21 @@ export const Login = () => {
         <div className="card o-hidden border-3 shadow-lg my-5">
           <div className="card-body p-0">
             <div className="row">
-              <div className="col-lg-6 d-none d-lg-block bg-login-image"></div>
+              <div className="col-lg-6 d-none d-lg-block bg-login-image" data-testid='login-img' alt='Painel Solar'></div>
               <div className="col-lg-6">
                 <div className="p-5">
                   <div className="text-center">
-                    <h1 className="h4 text-gray-900 mb-4">
+                    <h1 className="h4 text-gray-900 mb-4" data-testid='login-header' aria-label='Bem-vindo de volta'>
                       Bem-vindo de Volta!
                     </h1>
                   </div>
                   <form onSubmit={loginUser}>
                     <div className="form-group">
-                      <label htmlFor="email">Email:</label>
+                      <label htmlFor="email" aria-label='Email' data-testid='login-email'>Email:</label>
                       <input
+                        data-testid="login-email-input"
                         className="form-control"
+                        aria-label='Adicionar Email'
                         type="email"
                         id="email"
                         autoComplete="off"
@@ -61,10 +63,12 @@ export const Login = () => {
                       />
                     </div>
                     <div className="form-group">
-                      <label htmlFor="password">Senha:</label>
+                      <label htmlFor="password" data-testid="login-password">Senha:</label>
                       <input
+                        data-testid="login-password-input"
                         className="form-control"
                         type="password"
+                        aria-label='Adicionar Senha'
                         id="password"
                         placeholder="Senha"
                         onChange={(e) => setPassword(e.target.value)}
@@ -74,6 +78,8 @@ export const Login = () => {
                     </div>
                     <div className="text-center pt-4">
                       <button
+                        data-testid="login-btn"
+                        aria-label='Entrar no Sistema'
                         className="btn btn-primary btn-user btn-block"
                         type="submit"
                         disabled={!email || !password}
@@ -83,7 +89,7 @@ export const Login = () => {
                     </div>
 
                     <div className="text-center pt-4">
-                      <a className="small" href="/password-reset">
+                      <a className="small" data-testid="login-reset-password" href="/password-reset" aria-label='Esqueceu a senha?'>
                         Esqueceu a senha?
                       </a>
                     </div>

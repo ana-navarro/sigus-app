@@ -79,13 +79,15 @@ export const EditInstallation = () => {
             <ToastContainer />
             {show && handleOpenModal()}
             {!show && (
-                <div>
-                    <h3 className='text-center p-4'>Editar Cliente: {numberInstallation} </h3>
+                <div data-testid="installation-edit-form">
+                    <h3 aria-label={`Editar Instalação ${numberInstallation}`} className='text-center p-4'>Editar Instalação: {numberInstallation} </h3>
                     <FormBody>
                         <FormContent>
                             <GenericInput
                                 label="Número de Instalação"
                                 variant="filled"
+                                data-testid="installation-edit-number"
+                                aria-label='Editar número de instalação'
                                 value={numberInstallation}
                                 InputLabelProps={{ shrink: true }}
                                 placeholder="Número de Instalação"
@@ -97,7 +99,7 @@ export const EditInstallation = () => {
                         </FormContent>
 
                         <FormButton>
-                            <SubmitButton onClick={showModal}>
+                            <SubmitButton onClick={showModal} data-testid="installation-edit-form-btn" aria-label='Editar'>
                                 Enviar
                             </SubmitButton>
                         </FormButton>

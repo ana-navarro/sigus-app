@@ -9,7 +9,7 @@ export const DeleteUser = () => {
   Swal.fire({
     title: 'Você deseja realmente excluir?',
     showDenyButton: true,
-    confirmButtonText: 'Excluir',
+    confirmButtonText: 'Sim',
     denyButtonText: 'Não',
     allowOutsideClick: false,
     allowEscapeKey: false,

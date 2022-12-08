@@ -25,17 +25,17 @@ export const ShowUser = () => {
     <>
       <ToastContainer />
       <ShowTitle>
-        <ShowName>{user.name}</ShowName>
-        <EditButton>
+        <ShowName aria-label={`Administrador Nome: ${user.name}`} data-testid="show-user-name">{user.name}</ShowName>
+        <EditButton data-testid='show-user-edit-btn' aria-label='Editar Administrador'>
           <UnstyledLinks to={`/user/${user._id}/edit`}>Editar</UnstyledLinks>
         </EditButton>
-        <DeleteButton>
+        <DeleteButton data-testid='show-user-delete-btn' aria-label='Excluir Administrador'>
           <UnstyledLinks to={`/user/${user._id}/delete`}>Excluir</UnstyledLinks>
         </DeleteButton>
       </ShowTitle>
 
       <ShowInfo>
-        <p>Email: {user.email}</p>
+        <p aria-label={`Administrador Email: ${user.email}`} data-testid="show-user-email">Email: {user.email}</p>
       </ShowInfo>
     </>
   );

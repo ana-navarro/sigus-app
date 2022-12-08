@@ -28,7 +28,7 @@ export const Installations = () => {
         <>
             <ToastContainer />
             <div>
-                {<Table data={dadoAtual || installations} />}
+                {<Table data={dadoAtual || installations} data-testid="installation-table" />}
             </div>
             {installations && (
                 <Pagination
