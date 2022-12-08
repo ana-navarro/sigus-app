@@ -32,7 +32,7 @@ export const TablePop = (props) => {
               <td>
                 <IconDelete
                   onClick={() => {
-                    setCod(item?.id);
+                    setCod(item?._id);
                     handleShow();
                   }}
                 />

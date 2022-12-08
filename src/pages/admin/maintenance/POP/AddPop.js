@@ -31,11 +31,12 @@ export const AddPop = () => {
   }
 
   function inputFile(e) {
-    if (e.type == 'application/pdf') {
+    if (e.type === 'application/pdf' || e.type === 'application/msword') {
       setFile(e);
     } else {
       alert('Arquivo não suportado!');
       setFile(null);
+      handleClose();
     }
   }
 
@@ -53,7 +54,7 @@ export const AddPop = () => {
           <form action="post" onSubmit={(e) => handleSubmit(e)}>
             <input
               type={'file'}
-              accept="application/pdf,.pdf"
+              accept="application/pdf, .pdf, application/msword, .docx"
               onChange={(item) => inputFile(item.target.files[0])}
             />
           </form>
