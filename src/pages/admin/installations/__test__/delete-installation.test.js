@@ -33,7 +33,7 @@ describe('Delete Installation Component', () => {
         await axios.delete.mockResolvedValue({ data: mockData });
         render(<BrowserRouter><DeleteInstallation /></BrowserRouter>)
         expect(screen.getByText('Você deseja realmente excluir?')).toBeInTheDocument()
-        userEvent.click(screen.getByText('Não'))
+        userEvent.click(screen.getByText('Sim'))
         waitFor(() => expect(screen.getByText('Excluído!')).toBeInTheDocument())
     })
 })

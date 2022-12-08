@@ -75,11 +75,13 @@ export const CreditAdd = () => {
         <>
             <ToastContainer />
             <FormBody>
-                <FormTitle>Adicionar Crédito</FormTitle>
+                <FormTitle aria-label='adicionar crédito' data-testid='add-credit'>Adicionar Crédito</FormTitle>
                 <InputGroup>
-                    <FormLabel>Número de Instalação:</FormLabel>
+                    <FormLabel aria-label='Número de Instalação'>Número de Instalação:</FormLabel>
                     <Select
                         variant="filled"
+                        aria-label='Selecionar Número de Instalação'
+                        data-testid='add-credit-number'
                         labelId="installation"
                         placeholder="installation"
                         onChange={(e) => setIdInstallation(e.target.value)}
@@ -88,13 +90,15 @@ export const CreditAdd = () => {
                         fullWidth
                         required>
                         {install && install.map((installation) => (
-                            <MenuItem key={installation._id} value={installation._id}>{installation.numberInstallation}</MenuItem>
+                            <MenuItem aria-label={installation.numberInstallation} key={installation._id} value={installation._id}>{installation.numberInstallation}</MenuItem>
                         ))}
                     </Select>
-                    <FormLabel>Mês:</FormLabel>
+                    <FormLabel aria-label='Mês'>Mês:</FormLabel>
                     <Select
                         variant="filled"
                         labelId="month"
+                        aria-label='Selecionar Mês'
+                        data-testid='add-credit-month'
                         placeholder="month"
                         onChange={(e) => setMonth(e.target.value)}
                         InputLabelProps={{ shrink: true }}
@@ -102,7 +106,7 @@ export const CreditAdd = () => {
                         fullWidth
                         required>
                         {monthsOptions.map((month, index) => (
-                            <MenuItem key={index} value={month.value}>{month.label}</MenuItem>
+                            <MenuItem key={index} value={month.value} aria-label={month.label} >{month.label}</MenuItem>
                         ))}
                     </Select>
                 </InputGroup>
@@ -111,6 +115,8 @@ export const CreditAdd = () => {
                     <GenericInput
                         type="number"
                         placeholder="Energia Consumida"
+                        aria-label='Energia Consumida'
+                        data-testid='add-credit-consumed'
                         label="Energia Consumida"
                         InputLabelProps={{ shrink: true }}
                         onChange={(e) => setConsumed(e.target.value)}
@@ -128,6 +134,8 @@ export const CreditAdd = () => {
                         type="number"
                         placeholder="Distribuição"
                         label="Distribuição"
+                        aria-label='Distribuição'
+                        data-testid='add-credit-distribuition'
                         InputLabelProps={{ shrink: true }}
                         onChange={(e) => setDistribuition(e.target.value)}
                         value={distribuition}
@@ -144,6 +152,8 @@ export const CreditAdd = () => {
                         type="number"
                         placeholder="Desconto"
                         label="Desconto"
+                        aria-label='Desconto'
+                        data-testid='add-credit-discount'
                         InputLabelProps={{ shrink: true }}
                         onChange={(e) => setDiscount(e.target.value)}
                         value={discount}
@@ -160,6 +170,8 @@ export const CreditAdd = () => {
                         type="number"
                         placeholder="Balanço Anterior"
                         label="Balanço Anterior"
+                        aria-label='Balanço Anterior'
+                        data-testid='add-credit-previousBalance'
                         InputLabelProps={{ shrink: true }}
                         onChange={(e) => setPreviousBalance(e.target.value)}
                         value={previousBalance}
@@ -176,6 +188,8 @@ export const CreditAdd = () => {
                         type="number"
                         placeholder="Balanço Atual"
                         label="Balanço Atual"
+                        aria-label='Balanço Atual'
+                        data-testid='add-credit-actualBalance'
                         InputLabelProps={{ shrink: true }}
                         onChange={(e) => setActualBalance(e.target.value)}
                         value={actualBalance}
@@ -192,6 +206,8 @@ export const CreditAdd = () => {
                         type="number"
                         placeholder="Energia Injetada"
                         label="Energia Injetada"
+                        aria-label='Energia Injetada'
+                        data-testid='add-credit-injected'
                         InputLabelProps={{ shrink: true }}
                         onChange={(e) => setInjected(e.target.value)}
                         value={injected}
@@ -208,6 +224,8 @@ export const CreditAdd = () => {
                         type="number"
                         placeholder="Valor KwH"
                         label="Valor KwH"
+                        aria-label='Valor KwH'
+                        data-testid='add-credit-valueKwh'
                         InputLabelProps={{ shrink: true }}
                         onChange={(e) => setValueKwh(e.target.value)}
                         value={valueKwh}
@@ -224,6 +242,8 @@ export const CreditAdd = () => {
                         type="date"
                         placeholder="Data de Expiração"
                         label="Data de Expiração"
+                        aria-label='Data de Expiração'
+                        data-testid='add-credit-expirationDate'
                         InputLabelProps={{ shrink: true }}
                         onChange={(e) => setExpirationDate(e.target.value)}
                         value={expirationDate}
@@ -237,6 +257,8 @@ export const CreditAdd = () => {
 
                 <ButtonGroup>
                     <SubmitButton onClick={handleSubmit}
+                        aria-label='Adicionar Crédito'
+                        data-testid='add-credit-btn'
                         disabled={!idInstallation || !month || !consumed || !distribuition || !discount || !previousBalance || !actualBalance || !injected || !valueKwh || !expirationDate}>
                         Enviar
                     </SubmitButton>

@@ -27,7 +27,7 @@ export const Credit = () => {
     }, [currentPage]);
     return (
         <>
-            <div>
+            <div data-testid='credit'>
                 {<Table data={dadoAtual || credits} />}
             </div>
             {credits && (

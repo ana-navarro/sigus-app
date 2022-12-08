@@ -12,12 +12,12 @@ export const Cancel = () => {
             <ToastContainer />
             <AppBar style={{ background: '#060b26' }}>
                 <Toolbar>
-                    <Title><UnstyledLinks to={'/'}><h3>SIGUS</h3></UnstyledLinks></Title>
+                    <Title><UnstyledLinks to={'/'} aria-label='SIGUS'><h3>SIGUS</h3></UnstyledLinks></Title>
                 </Toolbar>
             </AppBar>
             <ResponseStripe>
-                <div className='text-center'><h3>Realização de Pagamento cancelada!</h3></div>
-                <img src={cancel} className="img-fluid" />
+                <div className='text-center'><h3 aria-label='Pagamento Cancelado'>Realização de Pagamento cancelada!</h3></div>
+                <img src={cancel} className="img-fluid" alt='Pedido Cancelado' />
             </ResponseStripe>
         </>
     )

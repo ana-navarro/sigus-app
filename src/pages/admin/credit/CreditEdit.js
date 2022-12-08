@@ -207,11 +207,12 @@ export const EditCredit = () => {
             {!show && (
                 <div>
                     <h3 className='text-center p-4'>Editar Crédito:</h3>
-                    <FormBody>
+                    <FormBody data-testid='credit-edit'>
                         <InputGroup>
-                            <FormLabel>Número de Instalação:</FormLabel>
+                            <FormLabel data-testid='credit-edit-installation' aria-label='Número de Instalação'>Número de Instalação:</FormLabel>
                             <GenericInput
                                 variant="filled"
+                                aria-label={`${installationNumber}`}
                                 labelId="installation"
                                 placeholder="installation"
                                 onChange={(e) => setIdInstallation(e.target.value)}
@@ -220,11 +221,12 @@ export const EditCredit = () => {
                                 fullWidth
                                 disabled
                                 required />
-                            <FormLabel>Mês:</FormLabel>
+                            <FormLabel data-testid='credit-edit-month' aria-label='Mês'>Mês:</FormLabel>
                             <Select
                                 variant="filled"
                                 labelId="month"
                                 placeholder="month"
+                                aria-label={`${month}`}
                                 onChange={(e) => setMonth(e.target.value)}
                                 InputLabelProps={{ shrink: true }}
                                 value={month}
@@ -238,6 +240,8 @@ export const EditCredit = () => {
 
                         <InputGroup>
                             <GenericInput
+                                data-testid='credit-edit-consumed'
+                                aria-label='Energia Consumida'
                                 type="number"
                                 placeholder="Energia Consumida"
                                 label="Energia Consumida"
@@ -254,6 +258,8 @@ export const EditCredit = () => {
 
                         <InputGroup>
                             <GenericInput
+                                data-testid='credit-edit-distribuition'
+                                aria-label='Distribuição'
                                 type="number"
                                 placeholder="Distribuição"
                                 label="Distribuição"
@@ -271,6 +277,8 @@ export const EditCredit = () => {
                         <InputGroup>
                             <GenericInput
                                 type="number"
+                                data-testid='credit-edit-discount'
+                                aria-label='Desconto'
                                 placeholder="Desconto"
                                 label="Desconto"
                                 InputLabelProps={{ shrink: true }}
@@ -287,6 +295,8 @@ export const EditCredit = () => {
                         <InputGroup>
                             <GenericInput
                                 type="number"
+                                data-testid='credit-edit-previousBalance'
+                                aria-label='Balanço Anterior'
                                 placeholder="Balanço Anterior"
                                 label="Balanço Anterior"
                                 InputLabelProps={{ shrink: true }}
@@ -303,6 +313,8 @@ export const EditCredit = () => {
                         <InputGroup>
                             <GenericInput
                                 type="number"
+                                data-testid='credit-edit-actualBalance'
+                                aria-label='Balanço Atual'
                                 placeholder="Balanço Atual"
                                 label="Balanço Atual"
                                 InputLabelProps={{ shrink: true }}
@@ -319,6 +331,8 @@ export const EditCredit = () => {
                         <InputGroup>
                             <GenericInput
                                 type="number"
+                                data-testid='credit-edit-injected'
+                                aria-label='Energia Injetada'
                                 placeholder="Energia Injetada"
                                 label="Energia Injetada"
                                 InputLabelProps={{ shrink: true }}
@@ -335,6 +349,8 @@ export const EditCredit = () => {
                         <InputGroup>
                             <GenericInput
                                 type="number"
+                                data-testid='credit-edit-valueKwh'
+                                aria-label='Valor KwH'
                                 placeholder="Valor KwH"
                                 label="Valor KwH"
                                 InputLabelProps={{ shrink: true }}
@@ -353,6 +369,8 @@ export const EditCredit = () => {
                                 type="date"
                                 placeholder="Data de Expiração"
                                 label="Data de Expiração"
+                                data-testid='credit-edit-expirationDate'
+                                aria-label='Data de Expiração'
                                 InputLabelProps={{ shrink: true }}
                                 onChange={(e) => setExpirationDate(e.target.value)}
                                 value={expirationDate}
@@ -364,8 +382,8 @@ export const EditCredit = () => {
                             />
                         </InputGroup>
                         <FormButton>
-                            <SubmitButton onClick={showModal}>
-                                Enviar
+                            <SubmitButton data-testid='credit-edit-btn' aria-label='Editar Crédito' onClick={showModal}>
+                                Editar
                             </SubmitButton>
                         </FormButton>
                     </FormBody>

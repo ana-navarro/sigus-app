@@ -12,12 +12,12 @@ export const Success = () => {
             <ToastContainer />
             <AppBar style={{ background: '#060b26' }}>
                 <Toolbar>
-                    <Title><UnstyledLinks to={'/'}><h3>SIGUS</h3></UnstyledLinks></Title>
+                    <Title><UnstyledLinks to={'/'}><h3 aria-label='SIGUS'>SIGUS</h3></UnstyledLinks></Title>
                 </Toolbar>
             </AppBar>
             <ResponseStripe>
-                <div className='text-center'><h3>Pagamento realizado com sucesso!</h3></div>
-                <img src={success} className="img-fluid" />
+                <div className='text-center'><h3 aria-label='Pagamento Realizado Com Sucesso!'>Pagamento realizado com sucesso!</h3></div>
+                <img src={success} className="img-fluid" alt='pagamento realizado com sucesso!' />
             </ResponseStripe>
         </>
     )

@@ -11,10 +11,12 @@ export const Table = ({ data }) => {
     return (
         <>
             <HeaderTable>
-                <HeaderTitle>Lista de Créditos</HeaderTitle>
-                <HeaderAddButton><UnstyleLink to={'/credit/add'}>Adicionar Crédito</UnstyleLink></HeaderAddButton>
+                <HeaderTitle aria-label='Lista de Créditos'>Lista de Créditos</HeaderTitle>
+                <HeaderAddButton data-testid='table-credit-add-btn' aria-label='Adicionar Crédito'><UnstyleLink to={'/credit/add'}>Adicionar Crédito</UnstyleLink></HeaderAddButton>
                 <Search>
                     <SearchBox
+                        data-testid='table-credit-searchbox'
+                        aria-label='Pesquise por Mês'
                         label='Pesquise por Mês'
                         className='search'
                         variant="outlined"
@@ -25,8 +27,8 @@ export const Table = ({ data }) => {
             </HeaderTable>
 
             <TableRoot>
-                <TableHeadTh>Instação e Mês</TableHeadTh>
-                <TableHeadActionsTh>Ações</TableHeadActionsTh>
+                <TableHeadTh data-testid='table-credit-install-th' aria-label='Instação e Mês'>Instação e Mês</TableHeadTh>
+                <TableHeadActionsTh data-testid='table-credit-actions-th' aria-label='Ações'>Ações</TableHeadActionsTh>
                 {data.filter((val) => {
                     if (searchItem === "") {
                         return val;
@@ -39,6 +41,8 @@ export const Table = ({ data }) => {
                             <TableTd>
                                 <Link
                                     to={`/credit/${item._id}`}
+                                    data-testid='table-credit-install-td'
+                                    aria-label={`${item.idInstallation} ${item.month}`}
                                 >
                                     <Number getNumber={item.idInstallation} />{item.month}
                                 </Link>
@@ -47,10 +51,14 @@ export const Table = ({ data }) => {
                         <TableActionsTd>
                             <Link
                                 to={`/credit/${item._id}/edit`}
+                                data-testid='table-credit-edit'
+                                aria-label='Editar Crédito'
                             >
                                 <button className="btn btn-success m-2"><FaPen /></button>
                             </Link>
                             <Link
+                                data-testid='table-credit-delete'
+                                aria-label='Deletar Crédito'
                                 to={`/credit/${item._id}/delete`}
                             >
                                 <button className="btn btn-danger"><FaTrashAlt /></button>

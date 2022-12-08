@@ -20,7 +20,7 @@ export const Number = props => {
     }, []);
 
     return (
-        <div>
+        <div aria-label={`${installationNumber.numberInstallation}`}>
             {installationNumber.numberInstallation}
         </div>
     )

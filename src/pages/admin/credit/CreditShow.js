@@ -2,7 +2,6 @@ import axios from 'axios';
 import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom';
 import { toast, ToastContainer } from 'react-toastify';
-import "./style.css"
 import { AddDemo, CreditButtonGroup, DeleteButton, EditButton, GerarDemo, PaymentButton, ShowInfo, ShowName, ShowTitle, UnstyledLinks } from './styled.style';
 import AppBar from '@mui/material/AppBar';
 import Toolbar from '@mui/material/Toolbar';
@@ -118,13 +117,16 @@ export const ShowCredit = () => {
             )}
             {!show && (
                 <div>
-                    <ShowTitle>
+                    <ShowTitle data-testid="show-credit">
                         <ShowName><UnstyledLinks to={`/installations/${idInstallation}`}>{installationNumber}</UnstyledLinks> - {credit.month}</ShowName>
                         <EditButton>
-                            <UnstyledLinks to={`/credit/${credit._id}/edit`}>Editar</UnstyledLinks>
+                            <UnstyledLinks
+                                to={`/credit/${credit._id}/edit`}
+                                aria-label={`Editar Crédito ${installationNumber} - ${credit.month}`}
+                                data-testid="show-credit-edit-btn">Editar</UnstyledLinks>
                         </EditButton>
                         <DeleteButton>
-                            <UnstyledLinks to={`/credit/${credit._id}/delete`}>Excluir</UnstyledLinks>
+                            <UnstyledLinks data-testid="show-credit-delete-btn" aria-label={`Deletar Crédito ${installationNumber} - ${credit.month}`} to={`/credit/${credit._id}/delete`}>Excluir</UnstyledLinks>
                         </DeleteButton>
                     </ShowTitle>
                     <ShowInfo>

@@ -140,8 +140,8 @@ export const Demo = () => {
             <ToastContainer />
             <AppBar style={{ background: '#060b26' }}>
                 <Toolbar>
-                    <Title><Title><UnstyledLinks to={'/'}><h3>SIGUS</h3></UnstyledLinks></Title></Title>
-                    <PayButton valuePayment={valuePayment} month={month} email={email} id={credit._id} />
+                    <Title><Title><UnstyledLinks to={'/'}><h3 aria-label='SIGUS'>SIGUS</h3></UnstyledLinks></Title></Title>
+                    <PayButton aria-label='Pagar' valuePayment={valuePayment} month={month} email={email} id={credit._id} data-testid='demo-pay-btn' />
                     {/* <StripeCheckout
                         label="Minera Engenharia - Energia Solar"
                         name="Minera Engenharia - Energia Solar"
@@ -160,46 +160,46 @@ export const Demo = () => {
                     <BackgroundBlock>
                     </BackgroundBlock>
                     <HeaderBlock>
-                        <div className="col"><img src={'https://api.renovigi.com.br/upload/images/VaUzQfsOCSPkgrl7EdWVHVxMoYFY5dMPGBk3wzQ592rM6hhQbfOdYFHpTPHquio36BuxfzOgfKjdzGDF2gj4am'} className="img-fluid" /></div>
+                        <div className="col"><img src={'https://api.renovigi.com.br/upload/images/VaUzQfsOCSPkgrl7EdWVHVxMoYFY5dMPGBk3wzQ592rM6hhQbfOdYFHpTPHquio36BuxfzOgfKjdzGDF2gj4am'} className="img-fluid" alt='minera-logo' data-testid='demo-logo-1' /></div>
                         <div className="col text-center">
-                            <HeaderBlockInfo>
-                                <RowCompany><strong>MINERA ENGENHARIA LTDA</strong></RowCompany>
-                                <RowCompany>Av. Gov. Magalhães Pinto, 2207 A - Alcides Rabelo</RowCompany>
-                                <RowCompany>Montes Claros - MG</RowCompany>
-                                <RowCompany>CEP: 39401-427</RowCompany>
-                                <RowCompany>CNPJ: 20.195.562/0001</RowCompany>
+                            <HeaderBlockInfo data-testid='demo-minera'>
+                                <RowCompany aria-label='Minera Engenharia LTDA'><strong>MINERA ENGENHARIA LTDA</strong></RowCompany>
+                                <RowCompany aria-label='Av. Gov. Magalhães Pinto, 2207 A - Alcides Rabelo'>Av. Gov. Magalhães Pinto, 2207 A - Alcides Rabelo</RowCompany>
+                                <RowCompany aria-label='Montes Claros - MG'>Montes Claros - MG</RowCompany>
+                                <RowCompany aria-label='CEP: 39401-427'>CEP: 39401-427</RowCompany>
+                                <RowCompany aria-label='CNPJ: 20.195.562/0001-45'>CNPJ: 20.195.562/0001-45</RowCompany>
                             </HeaderBlockInfo>
                         </div>
-                        <div className="col"><img src={'https://api.renovigi.com.br/upload/images/VaUzQfsOCSPkgrl7EdWVHVxMoYFY5dMPGBk3wzQ592rM6hhQbfOdYFHpTPHquio36BuxfzOgfKjdzGDF2gj4am'} className="img-fluid" /></div>
+                        <div className="col"><img src={'https://api.renovigi.com.br/upload/images/VaUzQfsOCSPkgrl7EdWVHVxMoYFY5dMPGBk3wzQ592rM6hhQbfOdYFHpTPHquio36BuxfzOgfKjdzGDF2gj4am'} className="img-fluid" alt='minera-logo' data-testid='demo-logo-2' /></div>
                     </HeaderBlock>
-                    <BlockCompany>
-                        <RowCompany><strong>{name}</strong></RowCompany>
-                        <RowCompany>{street}, {number} - {block}</RowCompany>
-                        <RowCompany>{moreInfo}</RowCompany>
-                        <RowCompany>{city} - {state} - {country}</RowCompany>
-                        <RowCompany>{postalCode}</RowCompany>
-                        <RowCompany>{cnpj}</RowCompany>
+                    <BlockCompany data-testid='demo-company'>
+                        <RowCompany aria-label={`${name}`}><strong>{name}</strong></RowCompany>
+                        <RowCompany aria-label={`${street}, ${number} - ${block}`}>{street}, {number} - {block}</RowCompany>
+                        <RowCompany aria-label={`${moreInfo}`}>{moreInfo}</RowCompany>
+                        <RowCompany aria-label={`${city}, ${state} - ${country}`}>{city} - {state} - {country}</RowCompany>
+                        <RowCompany aria-label={`${postalCode}`}>{postalCode}</RowCompany>
+                        <RowCompany aria-label={`${cnpj}`}>{cnpj}</RowCompany>
                     </BlockCompany>
                     <div>
-                        <RowInfo>
-                            <div className="col"><BlockInfo><TitleBlock>Mês de Referência</TitleBlock><ContentBlock>{month}</ContentBlock></BlockInfo></div>
-                            <div className="col"><BlockInfo><TitleBlock>Número de Instalação</TitleBlock><ContentBlock>{numberInstallation}</ContentBlock></BlockInfo></div>
+                        <RowInfo data-testid='demo-installation'>
+                            <div className="col" aria-label={`Mês de Referência ${month}`}><BlockInfo><TitleBlock>Mês de Referência</TitleBlock><ContentBlock>{month}</ContentBlock></BlockInfo></div>
+                            <div className="col" aria-label={`Número de Instalação ${numberInstallation}`}><BlockInfo><TitleBlock>Número de Instalação</TitleBlock><ContentBlock>{numberInstallation}</ContentBlock></BlockInfo></div>
                         </RowInfo>
-                        <RowInfo>
-                            <div className="col"><BlockInfo><TitleBlock>Balanço Anterior</TitleBlock><ContentBlock>{previousBalance}</ContentBlock></BlockInfo></div>
-                            <div className="col"><BlockInfo><TitleBlock>Balanço Atual</TitleBlock><ContentBlock>{actualBalance}</ContentBlock></BlockInfo></div>
-                            <div className="col"><BlockInfo><TitleBlock>Injetada</TitleBlock><ContentBlock>{injected}</ContentBlock></BlockInfo></div>
+                        <RowInfo data-testid='demo-balance'>
+                            <div className="col" aria-label={`Balanço Anterior ${previousBalance}`}><BlockInfo><TitleBlock>Balanço Anterior</TitleBlock><ContentBlock>{previousBalance}</ContentBlock></BlockInfo></div>
+                            <div className="col" aria-label={`Balanço Atual ${actualBalance}`}><BlockInfo><TitleBlock>Balanço Atual</TitleBlock><ContentBlock>{actualBalance}</ContentBlock></BlockInfo></div>
+                            <div className="col" aria-label={`Injetada ${injected}`}><BlockInfo><TitleBlock>Injetada</TitleBlock><ContentBlock>{injected}</ContentBlock></BlockInfo></div>
                         </RowInfo>
-                        <RowInfo>
-                            <div className="col"><BlockInfo><TitleBlock>Total Injetada</TitleBlock><ContentBlock>{totalInjected}</ContentBlock></BlockInfo></div>
-                            <div className="col"><BlockInfo><TitleBlock>Valor da Energia</TitleBlock><ContentBlock>{valueEnergy}</ContentBlock></BlockInfo></div>
-                            <div className="col"><BlockInfo><TitleBlock>Desconto</TitleBlock><ContentBlock>{discount}</ContentBlock></BlockInfo></div>
+                        <RowInfo data-testid='demo-injected'>
+                            <div className="col" aria-label={`Total Injetada ${totalInjected}`}><BlockInfo><TitleBlock>Total Injetada</TitleBlock><ContentBlock>{totalInjected}</ContentBlock></BlockInfo></div>
+                            <div className="col" aria-label={`Valor da Energia ${valueEnergy}`}><BlockInfo><TitleBlock>Valor da Energia</TitleBlock><ContentBlock>{valueEnergy}</ContentBlock></BlockInfo></div>
+                            <div className="col" aria-label={`Desconto ${discount}`}><BlockInfo><TitleBlock>Desconto</TitleBlock><ContentBlock>{discount}</ContentBlock></BlockInfo></div>
                         </RowInfo>
-                        <RowInfo>
-                            <div className="col"><BlockInfo><TitleBlock>Valor do Desconto</TitleBlock><ContentBlock>{valueDiscount}</ContentBlock></BlockInfo></div>
-                            <div className="col"><BlockInfo><TitleBlock>Data de Vencimento</TitleBlock><ContentBlock>{expirationDate}</ContentBlock></BlockInfo></div>
+                        <RowInfo data-testid='demo-discount'>
+                            <div className="col" aria-label={`Valor do Desconto ${valueDiscount}`}><BlockInfo><TitleBlock>Valor do Desconto</TitleBlock><ContentBlock>{valueDiscount}</ContentBlock></BlockInfo></div>
+                            <div className="col" aria-label={`Data de Vencimento ${expirationDate}`}><BlockInfo><TitleBlock>Data de Vencimento</TitleBlock><ContentBlock>{expirationDate}</ContentBlock></BlockInfo></div>
                         </RowInfo>
-                        <RowInfo>
+                        <RowInfo data-testid='demo-payment'>
                             <div className="col"><BlockInfo><TitleBlock>Valor do Pagamento</TitleBlock><ContentBlock>{valuePayment + 1}</ContentBlock></BlockInfo></div>
                         </RowInfo>
                     </div>
