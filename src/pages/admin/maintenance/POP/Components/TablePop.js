@@ -22,7 +22,7 @@ export const TablePop = (props) => {
           </thead>
 
           {data.map((item) => (
-            <tbody key={item?_id}>
+            <tbody key={item?._id}>
               <td>{item?.name}</td>
               <td>
                 <a href={item?.url}>
