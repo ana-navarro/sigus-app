@@ -22,7 +22,7 @@ export const TablePop = (props) => {
           </thead>
 
           {data.map((item) => (
-            <tbody key={item?.id}>
+            <tbody key={item?._id}>
               <td>{item?.name}</td>
               <td>
                 <a href={item?.url}>
@@ -32,7 +32,7 @@ export const TablePop = (props) => {
               <td>
                 <IconDelete
                   onClick={() => {
-                    setCod(item?.id);
+                    setCod(item?._id);
                     handleShow();
                   }}
                 />
@@ -47,38 +47,3 @@ export const TablePop = (props) => {
     <p>Nenhum POP adicionado</p>;
   }
 };
-
-{
-  /* <Table striped bordered hover>
-<thead>
-  <tr>
-    <th>Nome</th>
-    <th>Abrir</th>
-    <th>Excluir</th>
-  </tr>
-</thead>
-<tbody>
-  {dadoAtual &&
-    dadoAtual.map(({ id, name, url }) => (
-      <tr key={id}>
-        <td>{name}</td>
-        <td>
-          <a href={url}>
-            <AiFillFilePdf className="icon" />
-          </a>
-        </td>
-        <td>
-          {' '}
-          <AiFillDelete
-            className="icon"
-            onClick={() => {
-              setId(id);
-              setDelet(!delet);
-            }}
-          />
-        </td>
-      </tr>
-    ))}
-</tbody>
-</Table> */
-}
