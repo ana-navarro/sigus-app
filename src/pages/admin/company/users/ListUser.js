@@ -11,7 +11,7 @@ export const ListUser = props => {
 
     const getData = async () => {
         try {
-            const response = await axios.get(`http://api.sigusminera.online/api/company/${idCompany}/users`);
+            const response = await axios.get(`http://181.215.134.184:5000/api/company/${idCompany}/users`);
             setUsers(response.data)
         } catch (error) {
             console.log(error)

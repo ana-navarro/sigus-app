@@ -19,7 +19,7 @@ export const CreateCompanyButton = (props) => {
             name, email, cnpj, phone, idAddress
         }
         try {
-            const response = await axios.post("http://api.sigusminera.online/api/company/add", newCompany);
+            const response = await axios.post("http://181.215.134.184:5000/api/company/add", newCompany);
             toast.dismiss();
             toast.success(response.data.msg);
             navigate('/company')
