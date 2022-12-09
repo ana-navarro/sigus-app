@@ -10,7 +10,7 @@ export const Client = () => {
 
     useEffect(() => {
         const fetchClients = async () => {
-            const res = await axios.get("http://localhost:5000/api/client");
+            const res = await axios.get("http://api.sigusminera.online/api/client");
             setClients(res.data);
         }
 

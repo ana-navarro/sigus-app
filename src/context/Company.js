@@ -21,7 +21,7 @@ export const CompanyProvider = ({ children }) => {
 
     useEffect(() => {
         const fetchCompanies = async () => {
-            const response = await axios.get("http://localhost:5000/api/company/");
+            const response = await axios.get("http://api.sigusminera.online/company/");
             setCompaniesMap(response.data)
         }
         fetchCompanies()
@@ -31,7 +31,7 @@ export const CompanyProvider = ({ children }) => {
         e.preventDefault();
         try {
             const res = await axios.put(
-                `http://localhost:5000/api/company/${company.id}/edit`,
+                `http://api.sigusminera.online/company/${company.id}/edit`,
                 company,
             );
             toast.dismiss();

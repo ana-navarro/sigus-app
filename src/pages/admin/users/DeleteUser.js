@@ -28,7 +28,7 @@ export const DeleteUser = () => {
   async function excludeUser(id) {
     try {
       const res = await axios.delete(
-        `http://localhost:5000/api/users/${id}/delete`,
+        `http://api.sigusminera.online/api/users/${id}/delete`,
       );
     } catch (error) {
       console.log(error);

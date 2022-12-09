@@ -17,7 +17,7 @@ export const MaintenanceInst = () => {
   useEffect(() => {
     const fetchInstallations = async () => {
       const res = await axios.get(
-        `http://localhost:5000/api/installations_numbers/`,
+        `http://api.sigusminera.online/api/installations_numbers/`,
       );
       setInstallations(res.data);
       setCurrentPage(1);

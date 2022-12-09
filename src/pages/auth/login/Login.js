@@ -16,7 +16,7 @@ export const Login = () => {
     e.preventDefault();
 
     try {
-      const response = await axios.post('http://localhost:5000/api/login/', {
+      const response = await axios.post('http://api.sigusminera.online/api/login/', {
         email,
         password,
       });

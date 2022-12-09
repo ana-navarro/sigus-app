@@ -12,7 +12,7 @@ export const Checklists = () => {
   const getInstallations = async () => {
     try {
       const result = await axios.get(
-        `http://localhost:5000/api/technical/checklist/all/${idInstallations}`,
+        `http://api.sigusminera.online/api/technical/checklist/all/${idInstallations}`,
       );
       console.log(result.data);
       setChecklists(result.data);
@@ -27,14 +27,12 @@ export const Checklists = () => {
 
   const getData = (date) => {
     let newDate = new Date(date);
-    let formatData = `${newDate.getDate()}/${
-      newDate.getMonth() + 1
-    }/${newDate.getFullYear()}
-      ${newDate.getHours()}:${
-      newDate.getMinutes() < 9
+    let formatData = `${newDate.getDate()}/${newDate.getMonth() + 1
+      }/${newDate.getFullYear()}
+      ${newDate.getHours()}:${newDate.getMinutes() < 9
         ? `0${newDate.getMinutes()}`
         : newDate.getMinutes()
-    }
+      }
       `;
 
     return formatData;

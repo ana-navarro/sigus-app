@@ -5,7 +5,7 @@ export const CreditContext = createContext({
     creditMap: null,
     setCreditMap: () => null,
     id: null,
-    setId: () =>  null,
+    setId: () => null,
     discount: null,
     setDiscount: () => null,
     installationNumbe: null,
@@ -19,13 +19,13 @@ export const CreditProvider = ({ children }) => {
 
     useEffect(() => {
         const fetchCredits = async () => {
-            const res = await axios.get("http://localhost:5000/api/credit")
+            const res = await axios.get("http://api.sigusminera.online/api/credit")
             setCreditMap(res.data)
         }
         fetchCredits()
     }, [creditMap]);
 
-    useEffect(() => {}, [])
+    useEffect(() => { }, [])
 
     return <CreditContext.Provider value={value}>{children}</CreditContext.Provider>
 }

@@ -30,7 +30,7 @@ export const CreateClient = () => {
         }
         console.log(newClient)
         try {
-            const response = await axios.post("http://localhost:5000/api/client/add", newClient);
+            const response = await axios.post("http://api.sigusminera.online/api/client/add", newClient);
             toast.dismiss();
             navigate('/clients')
             toast.success(response.data.msg);
