@@ -16,7 +16,7 @@ export const Login = () => {
     e.preventDefault();
 
     try {
-      const response = await axios.post('http://api.sigusminera.online/api/login/', {
+      const response = await axios.post('http://sigus-server.vercel.app/api/login/', {
         email,
         password,
       });

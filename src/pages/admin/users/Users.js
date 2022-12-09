@@ -8,7 +8,7 @@ export const Users = () => {
   const [currentPage, setCurrentPage] = useState();
 
   const getData = async () => {
-    const res = await axios.get('http://api.sigusminera.online/api/users/');
+    const res = await axios.get('http://sigus-server.vercel.app/api/users/');
     setUsers(res.data);
     setCurrentPage(1);
   };

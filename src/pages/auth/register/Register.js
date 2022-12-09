@@ -25,7 +25,7 @@ export const Register = () => {
       };
       try {
         const response = await axios.post(
-          'http://api.sigusminera.online/api/register/',
+          'http://sigus-server.vercel.app/api/register/',
           userObj,
         );
         console.log(response.msg)

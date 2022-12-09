@@ -20,7 +20,7 @@ export const EditUser = () => {
   const getData = async () => {
     try {
       const res = await axios.get(
-        `http://api.sigusminera.online/api/users/${id.idUser}`,
+        `http://sigus-server.vercel.app/api/users/${id.idUser}`,
       );
       setName(res.data.user.name);
       setEmail(res.data.user.email);
@@ -44,7 +44,7 @@ export const EditUser = () => {
         email,
       };
       const res = await axios.put(
-        `http://api.sigusminera.online/api/users/${id.idUser}/edit`,
+        `http://sigus-server.vercel.app/api/users/${id.idUser}/edit`,
         userObj,
       );
       toast.dismiss();

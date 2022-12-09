@@ -30,7 +30,7 @@ export const DeleteAddress = () => {
     async function excludeUser(id) {
         try {
             const res = await axios.delete(
-                `http://api.sigusminera.online/api/company/${id}/address/delete`,
+                `http://sigus-server.vercel.app/api/company/${id}/address/delete`,
             );
             toast.dismiss();
             toast.success(res.data.msg)

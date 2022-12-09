@@ -29,7 +29,7 @@ export const DeleteChecklist = () => {
   const excludeChecklist = async () => {
     try {
       const checklist = axios.delete(
-        `http://api.sigusminera.online/api/technical/checklist/remove/${idChecklist}`,
+        `http://sigus-server.vercel.app/api/technical/checklist/remove/${idChecklist}`,
       );
     } catch (error) {
       console.log(error);

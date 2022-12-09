@@ -12,7 +12,7 @@ export const ShowUser = () => {
   useEffect(() => {
     const getData = async () => {
       try {
-        const res = await axios.get(`http://api.sigusminera.online/api/users/${idUser}`);
+        const res = await axios.get(`http://sigus-server.vercel.app/api/users/${idUser}`);
         setUser(res.data.user);
       } catch (error) {
         console.error(error);

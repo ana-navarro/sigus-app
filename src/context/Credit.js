@@ -19,7 +19,7 @@ export const CreditProvider = ({ children }) => {
 
     useEffect(() => {
         const fetchCredits = async () => {
-            const res = await axios.get("http://api.sigusminera.online/api/credit")
+            const res = await axios.get("http://sigus-server.vercel.app/api/credit")
             setCreditMap(res.data)
         }
         fetchCredits()

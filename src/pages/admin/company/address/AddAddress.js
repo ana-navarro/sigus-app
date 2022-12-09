@@ -32,7 +32,7 @@ export const AddAddress = () => {
         const newAddress = { street, block, idCompany, postalCode, number, state, city, country, moreInfo };
         try {
             console.log(newAddress)
-            const res = await axios.post(`http://api.sigusminera.online/api/company/${idCompany}/address/add`, newAddress);
+            const res = await axios.post(`http://sigus-server.vercel.app/api/company/${idCompany}/address/add`, newAddress);
             toast.dismiss();
             toast.success(res.data.msg);
             navigate(`/company/${idCompany}`)

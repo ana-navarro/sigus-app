@@ -10,7 +10,7 @@ export const Client = () => {
 
     useEffect(() => {
         const fetchClients = async () => {
-            const res = await axios.get("http://api.sigusminera.online/api/client");
+            const res = await axios.get("http://sigus-server.vercel.app/api/client");
             setClients(res.data);
         }
 

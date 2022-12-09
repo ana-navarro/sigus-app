@@ -8,7 +8,7 @@ export const Number = props => {
 
     const getData = async () => {
         try {
-            const res = await axios.get(`http://api.sigusminera.online/api/installations_numbers/${id}`);
+            const res = await axios.get(`http://sigus-server.vercel.app/api/installations_numbers/${id}`);
             setInstallationNumber(res.data);
         } catch (error) {
             console.log(error)

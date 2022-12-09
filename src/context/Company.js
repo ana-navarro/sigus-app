@@ -21,7 +21,7 @@ export const CompanyProvider = ({ children }) => {
 
     useEffect(() => {
         const fetchCompanies = async () => {
-            const response = await axios.get("http://api.sigusminera.online/company/");
+            const response = await axios.get("http://sigus-server.vercel.app/company/");
             setCompaniesMap(response.data)
         }
         fetchCompanies()
@@ -31,7 +31,7 @@ export const CompanyProvider = ({ children }) => {
         e.preventDefault();
         try {
             const res = await axios.put(
-                `http://api.sigusminera.online/company/${company.id}/edit`,
+                `http://sigus-server.vercel.app/company/${company.id}/edit`,
                 company,
             );
             toast.dismiss();
