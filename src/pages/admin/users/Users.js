@@ -8,7 +8,7 @@ export const Users = () => {
   const [currentPage, setCurrentPage] = useState();
 
   const getData = async () => {
-    const res = await axios.get('http://181.215.134.184/api/users/');
+    const res = await axios.get('http://181.215.134.184:5000/api/users/');
     setUsers(res.data);
     setCurrentPage(1);
   };

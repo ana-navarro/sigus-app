@@ -19,7 +19,7 @@ export const CreditProvider = ({ children }) => {
 
     useEffect(() => {
         const fetchCredits = async () => {
-            const res = await axios.get("http://181.215.134.184/api/credit")
+            const res = await axios.get("http://181.215.134.184:5000/api/credit")
             setCreditMap(res.data)
         }
         fetchCredits()

@@ -8,7 +8,7 @@ export const Number = props => {
 
     const getData = async () => {
         try {
-            const res = await axios.get(`http://181.215.134.184/api/installations_numbers/${id}`);
+            const res = await axios.get(`http://181.215.134.184:5000/api/installations_numbers/${id}`);
             setInstallationNumber(res.data);
         } catch (error) {
             console.log(error)

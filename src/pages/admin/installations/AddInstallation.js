@@ -24,7 +24,7 @@ export const AddInstallation = () => {
         }
         console.log(newInstall)
         try {
-            const response = await axios.post("http://181.215.134.184/api/installations_numbers/add", newInstall);
+            const response = await axios.post("http://181.215.134.184:5000/api/installations_numbers/add", newInstall);
             toast.dismiss();
             navigate('/installations')
             toast.success(response.data.msg);
@@ -36,7 +36,7 @@ export const AddInstallation = () => {
 
     useEffect(() => {
         const fetchTechnical = async () => {
-            const res = await axios.get('http://181.215.134.184/api/company/');
+            const res = await axios.get('http://181.215.134.184:5000/api/company/');
             setCompanies(res.data);
         };
         fetchTechnical();

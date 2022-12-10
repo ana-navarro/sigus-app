@@ -51,7 +51,7 @@ export const Demo = () => {
     useEffect(() => {
         const getData = async () => {
             try {
-                const res = await axios.get(`http://181.215.134.184/api/credit/${id.id}`);
+                const res = await axios.get(`http://181.215.134.184:5000/api/credit/${id.id}`);
                 setMonth(res.data.month);
                 setCredit(res.data);
                 setIdInstallationNumber(res.data.idInstallation);
@@ -74,7 +74,7 @@ export const Demo = () => {
     useEffect(() => {
         const getNumberInstallation = async () => {
             try {
-                const res = await axios.get(`http://181.215.134.184/api/installations_numbers/${idInstallationNumber}`);
+                const res = await axios.get(`http://181.215.134.184:5000/api/installations_numbers/${idInstallationNumber}`);
                 setNumberInstallation(res.data.numberInstallation);
                 setIdCompany(res.data.idCompany);
             } catch (error) {
@@ -87,7 +87,7 @@ export const Demo = () => {
     useEffect(() => {
         const getCompanyData = async () => {
             try {
-                const res = await axios.get(`http://181.215.134.184/api/company/${idCompany}`);
+                const res = await axios.get(`http://181.215.134.184:5000/api/company/${idCompany}`);
                 setCompany(res.data.company);
                 setEmail(res.data.company.email);
                 setName(res.data.company.name);
@@ -102,7 +102,7 @@ export const Demo = () => {
 
     const getAddressData = async () => {
         try {
-            const res = await axios.get(`http://181.215.134.184/api/company/${idCompany}/address`);
+            const res = await axios.get(`http://181.215.134.184:5000/api/company/${idCompany}/address`);
             setStreet(res.data[0].street);
             setNumber(res.data[0].number);
             setBlock(res.data[0].block);
@@ -126,7 +126,7 @@ export const Demo = () => {
             token,
         }
 
-        return await axios.post(`http://181.215.134.184/api/stripe/payment`, body)
+        return await axios.post(`http://181.215.134.184:5000/api/stripe/payment`, body)
             .then(response => {
                 console.log("response ", response);
                 const { status } = response;

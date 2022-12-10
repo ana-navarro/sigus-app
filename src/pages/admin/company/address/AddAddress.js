@@ -32,7 +32,7 @@ export const AddAddress = () => {
         const newAddress = { street, block, idCompany, postalCode, number, state, city, country, moreInfo };
         try {
             console.log(newAddress)
-            const res = await axios.post(`http://181.215.134.184/api/company/${idCompany}/address/add`, newAddress);
+            const res = await axios.post(`http://181.215.134.184:5000/api/company/${idCompany}/address/add`, newAddress);
             toast.dismiss();
             toast.success(res.data.msg);
             navigate(`/company/${idCompany}`)

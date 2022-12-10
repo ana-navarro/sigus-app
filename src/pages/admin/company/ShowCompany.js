@@ -17,7 +17,7 @@ export const ShowCompany = () => {
 
     const getData = async () => {
         try {
-            const res = await axios.get(`http://181.215.134.184/api/company/${id.idCompany}`);
+            const res = await axios.get(`http://181.215.134.184:5000/api/company/${id.idCompany}`);
             setCompany(res.data.company);
         } catch (error) {
             console.error(error);
@@ -29,7 +29,7 @@ export const ShowCompany = () => {
 
     const getAddress = async () => {
         try {
-            const res = await axios.get(`http://181.215.134.184/api/company/${id.idCompany}/address`);
+            const res = await axios.get(`http://181.215.134.184:5000/api/company/${id.idCompany}/address`);
             if (res.data.length !== 0) {
                 setShowAddress(true);
                 setAddress(res.data);
