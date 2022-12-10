@@ -16,7 +16,7 @@ export const ForgotPassword = () => {
             password
         }
         try {
-            const res = await axios.post(`http://181.215.134.184//api/forgotpassword/${id.id}`, newPassword)
+            const res = await axios.post(`http://181.215.134.184/api/forgotpassword/${id.id}`, newPassword)
             toast.dismiss();
             toast.success("Senha alterada com sucesso");
             navigate('/')

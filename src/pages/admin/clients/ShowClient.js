@@ -13,7 +13,7 @@ export const ShowClient = () => {
 
     const getData = async () => {
         try {
-            const res = await axios.get(`http://181.215.134.184//api/client/${id.idClient}`);
+            const res = await axios.get(`http://181.215.134.184/api/client/${id.idClient}`);
             setClient(res.data);
             setCompany(res.data.idCompany);
         } catch (error) {
@@ -29,7 +29,7 @@ export const ShowClient = () => {
     useEffect(() => {
         const getCompanyName = async () => {
             try {
-                const res = await axios.get(`http://181.215.134.184//api/company/${company}`)
+                const res = await axios.get(`http://181.215.134.184/api/company/${company}`)
                 setCompanyName(res.data.company.name)
             } catch (error) {
                 console.error(error);

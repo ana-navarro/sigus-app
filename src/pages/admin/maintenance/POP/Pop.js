@@ -17,7 +17,7 @@ export const Pop = () => {
 
   async function getPop() {
     try {
-      const result = await axios.get(`http://181.215.134.184//api/pops`);
+      const result = await axios.get(`http://181.215.134.184/api/pops`);
       console.log(result.data);
       setPop(result.data);
       setCurrentPage(1);

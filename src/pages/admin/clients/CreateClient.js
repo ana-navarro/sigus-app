@@ -30,7 +30,7 @@ export const CreateClient = () => {
         }
         console.log(newClient)
         try {
-            const response = await axios.post("http://181.215.134.184//api/client/add", newClient);
+            const response = await axios.post("http://181.215.134.184/api/client/add", newClient);
             toast.dismiss();
             navigate('/clients')
             toast.success(response.data.msg);

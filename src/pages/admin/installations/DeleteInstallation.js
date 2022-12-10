@@ -28,7 +28,7 @@ export const DeleteInstallation = () => {
     async function excluirInstallation(id) {
         try {
             const res = await axios.delete(
-                `http://181.215.134.184//api/installations_numbers/${id}/delete`,
+                `http://181.215.134.184/api/installations_numbers/${id}/delete`,
             );
         } catch (error) {
             console.log(error)

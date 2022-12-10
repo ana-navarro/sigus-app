@@ -21,7 +21,7 @@ export const CompanyProvider = ({ children }) => {
 
     useEffect(() => {
         const fetchCompanies = async () => {
-            const response = await axios.get("http://181.215.134.184//api/company/");
+            const response = await axios.get("http://181.215.134.184/api/company/");
             setCompaniesMap(response.data)
         }
         fetchCompanies()
@@ -31,7 +31,7 @@ export const CompanyProvider = ({ children }) => {
         e.preventDefault();
         try {
             const res = await axios.put(
-                `http://181.215.134.184//api/company/${company.id}/edit`,
+                `http://181.215.134.184/api/company/${company.id}/edit`,
                 company,
             );
             toast.dismiss();

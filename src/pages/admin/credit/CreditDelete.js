@@ -28,7 +28,7 @@ export const CreditDelete = () => {
     async function excludeCredit(id) {
         try {
             const res = await axios.delete(
-                `http://181.215.134.184//api/credit/${id}/delete`,
+                `http://181.215.134.184/api/credit/${id}/delete`,
             );
         } catch (error) {
             console.log(error);
