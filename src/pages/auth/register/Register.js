@@ -25,7 +25,7 @@ export const Register = () => {
       };
       try {
         const response = await axios.post(
-          'https://sigusminera.online/api/register/',
+          'http://181.215.134.184//api/register/',
           userObj,
         );
         console.log(response.msg)

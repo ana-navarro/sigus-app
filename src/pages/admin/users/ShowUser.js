@@ -12,7 +12,7 @@ export const ShowUser = () => {
   useEffect(() => {
     const getData = async () => {
       try {
-        const res = await axios.get(`https://sigusminera.online/api/users/${idUser}`);
+        const res = await axios.get(`http://181.215.134.184//api/users/${idUser}`);
         setUser(res.data.user);
       } catch (error) {
         console.error(error);

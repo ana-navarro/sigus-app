@@ -30,7 +30,7 @@ export const DeleteClient = () => {
     async function excludeUser(id) {
         try {
             const res = await axios.delete(
-                `https://sigusminera.online/api/client/${id}/delete`,
+                `http://181.215.134.184//api/client/${id}/delete`,
             );
         } catch (error) {
             console.log(error);

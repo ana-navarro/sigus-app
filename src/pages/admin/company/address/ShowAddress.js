@@ -11,7 +11,7 @@ export const ShowAddress = () => {
 
     const getAddress = async () => {
         try {
-            const res = await axios.get(`https://sigusminera.online/api/company/${id.idCompany}/address`);
+            const res = await axios.get(`http://181.215.134.184//api/company/${id.idCompany}/address`);
             setAddress(res.data[0]);
             console.log(res.data);
         } catch (error) {

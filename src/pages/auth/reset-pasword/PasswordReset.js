@@ -26,7 +26,7 @@ export const PasswordReset = () => {
             });
         } else {
             console.log(email)
-            const res = await axios.post("https://sigusminera.online/api/reset-password", email);
+            const res = await axios.post("http://181.215.134.184//api/reset-password", email);
             const data = await res.json();
             if (data.status === 201) {
                 setEmail("");

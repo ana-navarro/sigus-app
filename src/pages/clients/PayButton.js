@@ -9,7 +9,7 @@ export const PayButton = ({ valuePayment, month, email, id }) => {
             month,
             email
         ]
-        await axios.post(`https://sigusminera.online/api/stripe/${id}/payment`, body)
+        await axios.post(`http://181.215.134.184//api/stripe/${id}/payment`, body)
             .then((res) => {
                 if (res.data.url) {
                     window.location.href = res.data.url
