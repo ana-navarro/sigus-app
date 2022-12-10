@@ -16,7 +16,7 @@ export const ForgotPassword = () => {
             password
         }
         try {
-            const res = await axios.post(`http://sigusminera.online/api/forgotpassword/${id.id}`, newPassword)
+            const res = await axios.post(`https://sigusminera.online/api/forgotpassword/${id.id}`, newPassword)
             toast.dismiss();
             toast.success("Senha alterada com sucesso");
             navigate('/')

@@ -10,7 +10,7 @@ export const Credit = () => {
     useEffect(() => {
         const getData = async () => {
             try {
-                const response = await axios.get("http://sigusminera.online/api/credit");
+                const response = await axios.get("https://sigusminera.online/api/credit");
                 setCredits(response.data);
                 setCurrentPage(1);
             } catch (error) {

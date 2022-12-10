@@ -28,7 +28,7 @@ export const DeleteInstallation = () => {
     async function excluirInstallation(id) {
         try {
             const res = await axios.delete(
-                `http://sigusminera.online/api/installations_numbers/${id}/delete`,
+                `https://sigusminera.online/api/installations_numbers/${id}/delete`,
             );
         } catch (error) {
             console.log(error)

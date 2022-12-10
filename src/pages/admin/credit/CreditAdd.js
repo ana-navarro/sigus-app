@@ -38,7 +38,7 @@ export const CreditAdd = () => {
 
     useEffect(() => {
         const getInstallation = async () => {
-            const response = await axios.get(`http://sigusminera.online/api/installations_numbers/`);
+            const response = await axios.get(`https://sigusminera.online/api/installations_numbers/`);
             setInstall(response.data);
         }
         getInstallation()
@@ -59,7 +59,7 @@ export const CreditAdd = () => {
             expirationDate,
         }
         try {
-            const res = await axios.post("http://sigusminera.online/api/credit/add", newCredit);
+            const res = await axios.post("https://sigusminera.online/api/credit/add", newCredit);
             toast.dismiss();
             console.log(res.data.msg)
             toast.success(res.data.msg);

@@ -18,7 +18,7 @@ export const Company = () => {
 
     useEffect(() => {
         const fetchCompanies = async () => {
-            const response = await axios.get("http://sigusminera.online/api/company/");
+            const response = await axios.get("https://sigusminera.online/api/company/");
             setData(response.data)
             setCurrentPage(1);
         }

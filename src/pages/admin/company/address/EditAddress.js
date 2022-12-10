@@ -31,7 +31,7 @@ export const EditAddress = () => {
     useEffect(() => {
         const getAddress = async () => {
             try {
-                const res = await axios.get(`http://sigusminera.online/api/company/${id.idAddress}/address/info`);
+                const res = await axios.get(`https://sigusminera.online/api/company/${id.idAddress}/address/info`);
                 setStreet(res.data.street);
                 setNumber(res.data.number);
                 setMoreInfo(res.data.moreInfo);
@@ -72,7 +72,7 @@ export const EditAddress = () => {
         const newAddress = { street, block, postalCode, number, state, city, country, moreInfo };
         try {
             console.log(newAddress)
-            const res = await axios.put(`http://sigusminera.online/api/company/${id.idAddress}/address/edit`, newAddress);
+            const res = await axios.put(`https://sigusminera.online/api/company/${id.idAddress}/address/edit`, newAddress);
             toast.dismiss();
             toast.success(res.data.msg);
             navigate(`/company/`)

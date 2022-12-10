@@ -8,7 +8,7 @@ export const Users = () => {
   const [currentPage, setCurrentPage] = useState();
 
   const getData = async () => {
-    const res = await axios.get('http://sigusminera.online/api/users/');
+    const res = await axios.get('https://sigusminera.online/api/users/');
     setUsers(res.data);
     setCurrentPage(1);
   };

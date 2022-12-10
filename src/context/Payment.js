@@ -21,7 +21,7 @@ export const PaymentProvider = ({ children }) => {
 
     useEffect(() => {
         const fetchClientData = async () => {
-            const res = await axios.get(`http://sigusminera.online/api/client/${idClient}`)
+            const res = await axios.get(`https://sigusminera.online/api/client/${idClient}`)
             setClient(res.data);
         }
         fetchClientData();
@@ -29,7 +29,7 @@ export const PaymentProvider = ({ children }) => {
 
     useEffect(() => {
         const fetchCreditData = async () => {
-            const res = await axios.get(`http://sigusminera.online/api/credit/${idCredit}`)
+            const res = await axios.get(`https://sigusminera.online/api/credit/${idCredit}`)
             setCredit(res.data)
         }
     }, [idCredit]);

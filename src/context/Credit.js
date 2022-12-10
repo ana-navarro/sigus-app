@@ -19,7 +19,7 @@ export const CreditProvider = ({ children }) => {
 
     useEffect(() => {
         const fetchCredits = async () => {
-            const res = await axios.get("http://sigusminera.online/api/credit")
+            const res = await axios.get("https://sigusminera.online/api/credit")
             setCreditMap(res.data)
         }
         fetchCredits()

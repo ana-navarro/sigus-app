@@ -40,7 +40,7 @@ export const EditInstallation = () => {
 
     const getData = async () => {
         try {
-            const res = await axios.get(`http://sigusminera.online/api/installations_numbers/${id.idInstallation}`);
+            const res = await axios.get(`https://sigusminera.online/api/installations_numbers/${id.idInstallation}`);
             setNumberInstallation(res.data.numberInstallation);
             console.log(res.data)
         } catch (error) {
@@ -62,7 +62,7 @@ export const EditInstallation = () => {
                 numberInstallation
             };
             const res = await axios.put(
-                `http://sigusminera.online/api/installations_numbers/${id.idInstallation}/edit`,
+                `https://sigusminera.online/api/installations_numbers/${id.idInstallation}/edit`,
                 installation,
             );
             toast.dismiss();

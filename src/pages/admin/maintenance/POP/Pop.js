@@ -17,7 +17,7 @@ export const Pop = () => {
 
   async function getPop() {
     try {
-      const result = await axios.get(`http://sigusminera.online/api/pops`);
+      const result = await axios.get(`https://sigusminera.online/api/pops`);
       console.log(result.data);
       setPop(result.data);
       setCurrentPage(1);

@@ -58,7 +58,7 @@ export const EditClient = () => {
         const getData = async () => {
             try {
                 const res = await axios.get(
-                    `http://sigusminera.online/api/client/${id.idClient}`,
+                    `https://sigusminera.online/api/client/${id.idClient}`,
                 );
                 setIdCompany(res.data.idCompany);
                 setFirstName(res.data.firstName);
@@ -96,7 +96,7 @@ export const EditClient = () => {
                 idCompany
             };
             const res = await axios.put(
-                `http://sigusminera.online/api/client/${id.idClient}/edit`,
+                `https://sigusminera.online/api/client/${id.idClient}/edit`,
                 userObj,
             );
             toast.dismiss();

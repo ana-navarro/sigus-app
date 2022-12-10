@@ -26,7 +26,7 @@ export const ShowCredit = () => {
     const id = useParams();
     const getInstallationNumber = async (id) => {
         try {
-            const res = await axios.get(`http://sigusminera.online/api/installations_numbers/${id}`)
+            const res = await axios.get(`https://sigusminera.online/api/installations_numbers/${id}`)
             setInstallationNumber(res.data.numberInstallation);
             getCompanyData(res.data.idCompany);
             getAddressData(res.data.idCompany);
@@ -37,7 +37,7 @@ export const ShowCredit = () => {
 
     const getAddressData = async (id) => {
         try {
-            const res = await axios.get(`http://sigusminera.online/api/company/${id}/address`);
+            const res = await axios.get(`https://sigusminera.online/api/company/${id}/address`);
             setAddress(res.data[0]);
         } catch (error) {
             console.error(error);
@@ -46,7 +46,7 @@ export const ShowCredit = () => {
 
     const getCompanyData = async (id) => {
         try {
-            const res = await axios.get(`http://sigusminera.online/api/company/${id}`);
+            const res = await axios.get(`https://sigusminera.online/api/company/${id}`);
             setCompany(res.data.company)
             setEmail(res.data.company.email)
         } catch (error) {
@@ -56,7 +56,7 @@ export const ShowCredit = () => {
 
     const getData = async () => {
         try {
-            const res = await axios.get(`http://sigusminera.online/api/credit/${id.idCredit}`);
+            const res = await axios.get(`https://sigusminera.online/api/credit/${id.idCredit}`);
             setCredit(res.data);
             setMonth(res.data.month);
             setValuePayment(res.data.valuePayment);
@@ -81,7 +81,7 @@ export const ShowCredit = () => {
 
     const sendLink = async (e) => {
         e.preventDefault();
-        const res = await axios.post(`http://sigusminera.online/api/credit/${id.idCredit}/send-demo`, email);
+        const res = await axios.post(`https://sigusminera.online/api/credit/${id.idCredit}/send-demo`, email);
         if (res.status === 201) {
             toast.success("Email enviado com sucesso!")
         } else {

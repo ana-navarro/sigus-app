@@ -10,7 +10,7 @@ export const Installations = () => {
 
     useEffect(() => {
         const fetchInstallations = async () => {
-            const res = await axios.get(`http://sigusminera.online/api/installations_numbers/`);
+            const res = await axios.get(`https://sigusminera.online/api/installations_numbers/`);
             setInstallations(res.data);
             setCurrentPage(1);
         }

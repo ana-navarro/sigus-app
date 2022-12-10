@@ -30,7 +30,7 @@ export const DeleteAddress = () => {
     async function excludeUser(id) {
         try {
             const res = await axios.delete(
-                `http://sigusminera.online/api/company/${id}/address/delete`,
+                `https://sigusminera.online/api/company/${id}/address/delete`,
             );
             toast.dismiss();
             toast.success(res.data.msg)

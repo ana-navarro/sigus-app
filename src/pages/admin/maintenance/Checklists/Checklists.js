@@ -12,7 +12,7 @@ export const Checklists = () => {
   const getInstallations = async () => {
     try {
       const result = await axios.get(
-        `http://sigusminera.online/api/technical/checklist/all/${idInstallations}`,
+        `https://sigusminera.online/api/technical/checklist/all/${idInstallations}`,
       );
       console.log(result.data);
       setChecklists(result.data);
