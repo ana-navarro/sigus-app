@@ -18,7 +18,7 @@ export const Company = () => {
 
     useEffect(() => {
         const fetchCompanies = async () => {
-            const response = await axios.get("http://sigus-server.vercel.app/company/");
+            const response = await axios.get("http://sigusminera.online/api/company/");
             setData(response.data)
             setCurrentPage(1);
         }

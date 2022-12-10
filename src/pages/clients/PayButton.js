@@ -9,7 +9,7 @@ export const PayButton = ({ valuePayment, month, email, id }) => {
             month,
             email
         ]
-        await axios.post(`http://sigus-server.vercel.app/stripe/${id}/payment`, body)
+        await axios.post(`http://sigusminera.online/api/stripe/${id}/payment`, body)
             .then((res) => {
                 if (res.data.url) {
                     window.location.href = res.data.url

@@ -19,7 +19,7 @@ export const CreateCompanyButton = (props) => {
             name, email, cnpj, phone, idAddress
         }
         try {
-            const response = await axios.post("http://sigus-server.vercel.app/company/add", newCompany);
+            const response = await axios.post("http://sigusminera.online/api/company/add", newCompany);
             toast.dismiss();
             toast.success(response.data.msg);
             navigate('/company')

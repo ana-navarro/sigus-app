@@ -26,7 +26,7 @@ export const EditCompany = () => {
     useEffect(() => {
         const getCompany = async () => {
             try {
-                const res = await axios.get(`http://sigus-server.vercel.app/company/${id.idCompany}`)
+                const res = await axios.get(`http://sigusminera.online/api/company/${id.idCompany}`)
                 setName(res.data.company.name);
                 setPhone(res.data.company.phone);
                 setCnpj(res.data.company.cnpj);
@@ -84,7 +84,7 @@ export const EditCompany = () => {
             const company = {
                 name, cnpj, phone
             }
-            const res = await axios.put(`http://sigus-server.vercel.app/company/${id.idCompany}/edit`, company);
+            const res = await axios.put(`http://sigusminera.online/api/company/${id.idCompany}/edit`, company);
             toast.dismiss();
             toast.success(res.data.msg);
             navigate(`/company`);

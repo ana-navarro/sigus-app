@@ -30,7 +30,7 @@ export const DeleteClient = () => {
     async function excludeUser(id) {
         try {
             const res = await axios.delete(
-                `http://sigus-server.vercel.app/client/${id}/delete`,
+                `http://sigusminera.online/api/client/${id}/delete`,
             );
         } catch (error) {
             console.log(error);
