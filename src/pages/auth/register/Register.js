@@ -25,7 +25,7 @@ export const Register = () => {
       };
       try {
         const response = await axios.post(
-          'http://sigus-server.vercel.app/api/register/',
+          'http://sigus-server.vercel.app/register/',
           userObj,
         );
         console.log(response.msg)

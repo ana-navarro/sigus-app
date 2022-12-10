@@ -28,7 +28,7 @@ export const DeleteUser = () => {
   async function excludeUser(id) {
     try {
       const res = await axios.delete(
-        `http://sigus-server.vercel.app/api/users/${id}/delete`,
+        `http://sigus-server.vercel.app/users/${id}/delete`,
       );
     } catch (error) {
       console.log(error);

@@ -10,7 +10,7 @@ export const Credit = () => {
     useEffect(() => {
         const getData = async () => {
             try {
-                const response = await axios.get("http://sigus-server.vercel.app/api/credit");
+                const response = await axios.get("http://sigus-server.vercel.app/credit");
                 setCredits(response.data);
                 setCurrentPage(1);
             } catch (error) {

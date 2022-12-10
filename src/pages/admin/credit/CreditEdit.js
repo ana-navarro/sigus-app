@@ -130,7 +130,7 @@ export const EditCredit = () => {
     useEffect(() => {
         const getData = async () => {
             try {
-                const res = await axios.get(`http://sigus-server.vercel.app/api/credit/${id.idCredit}`);
+                const res = await axios.get(`http://sigus-server.vercel.app/credit/${id.idCredit}`);
                 setConsumed(res.data.consumed)
                 setDiscount(res.data.discount)
                 setDistribuition(res.data.distribuition)
@@ -176,7 +176,7 @@ export const EditCredit = () => {
                 valueDiscount,
                 valuePayment
             }
-            const res = await axios.put(`http://sigus-server.vercel.app/api/credit/${id.idCredit}/edit`, updatedCredit);
+            const res = await axios.put(`http://sigus-server.vercel.app/credit/${id.idCredit}/edit`, updatedCredit);
             toast.dismiss();
             toast.success(res.data.msg);
             navigate(`/credit/`);
@@ -190,7 +190,7 @@ export const EditCredit = () => {
     useEffect(() => {
         const getDataInstall = async () => {
             try {
-                const res = await axios.get(`http://sigus-server.vercel.app/api/installations_numbers/${idInstallation}`);
+                const res = await axios.get(`http://sigus-server.vercel.app/installations_numbers/${idInstallation}`);
                 setInstallationNumber(res.data.numberInstallation);
                 console.log(res.data)
             } catch (error) {

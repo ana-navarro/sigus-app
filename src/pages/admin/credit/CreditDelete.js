@@ -28,7 +28,7 @@ export const CreditDelete = () => {
     async function excludeCredit(id) {
         try {
             const res = await axios.delete(
-                `http://sigus-server.vercel.app/api/credit/${id}/delete`,
+                `http://sigus-server.vercel.app/credit/${id}/delete`,
             );
         } catch (error) {
             console.log(error);

@@ -11,7 +11,7 @@ export const ShowAddress = () => {
 
     const getAddress = async () => {
         try {
-            const res = await axios.get(`http://sigus-server.vercel.app/api/company/${id.idCompany}/address`);
+            const res = await axios.get(`http://sigus-server.vercel.app/company/${id.idCompany}/address`);
             setAddress(res.data[0]);
             console.log(res.data);
         } catch (error) {

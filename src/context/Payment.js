@@ -21,7 +21,7 @@ export const PaymentProvider = ({ children }) => {
 
     useEffect(() => {
         const fetchClientData = async () => {
-            const res = await axios.get(`http://sigus-server.vercel.app/api/client/${idClient}`)
+            const res = await axios.get(`http://sigus-server.vercel.app/client/${idClient}`)
             setClient(res.data);
         }
         fetchClientData();
@@ -29,7 +29,7 @@ export const PaymentProvider = ({ children }) => {
 
     useEffect(() => {
         const fetchCreditData = async () => {
-            const res = await axios.get(`http://sigus-server.vercel.app/api/credit/${idCredit}`)
+            const res = await axios.get(`http://sigus-server.vercel.app/credit/${idCredit}`)
             setCredit(res.data)
         }
     }, [idCredit]);

@@ -24,7 +24,7 @@ export const AddInstallation = () => {
         }
         console.log(newInstall)
         try {
-            const response = await axios.post("http://sigus-server.vercel.app/api/installations_numbers/add", newInstall);
+            const response = await axios.post("http://sigus-server.vercel.app/installations_numbers/add", newInstall);
             toast.dismiss();
             navigate('/installations')
             toast.success(response.data.msg);
@@ -36,7 +36,7 @@ export const AddInstallation = () => {
 
     useEffect(() => {
         const fetchTechnical = async () => {
-            const res = await axios.get('http://sigus-server.vercel.app/api/company/');
+            const res = await axios.get('http://sigus-server.vercel.app/company/');
             setCompanies(res.data);
         };
         fetchTechnical();

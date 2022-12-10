@@ -12,7 +12,7 @@ export const Checklists = () => {
   const getInstallations = async () => {
     try {
       const result = await axios.get(
-        `http://sigus-server.vercel.app/api/technical/checklist/all/${idInstallations}`,
+        `http://sigus-server.vercel.app/technical/checklist/all/${idInstallations}`,
       );
       console.log(result.data);
       setChecklists(result.data);

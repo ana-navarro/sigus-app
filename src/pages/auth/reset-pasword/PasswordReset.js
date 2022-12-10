@@ -26,7 +26,7 @@ export const PasswordReset = () => {
             });
         } else {
             console.log(email)
-            const res = await axios.post("http://sigus-server.vercel.app/api/reset-password", email);
+            const res = await axios.post("http://sigus-server.vercel.app/reset-password", email);
             const data = await res.json();
             if (data.status === 201) {
                 setEmail("");

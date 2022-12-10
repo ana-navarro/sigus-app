@@ -12,7 +12,7 @@ export const ShowInstallation = () => {
     const id = useParams();
     const getCompanyName = async (id) => {
         try {
-            const res = await axios.get(`http://sigus-server.vercel.app/api/company/${id}`)
+            const res = await axios.get(`http://sigus-server.vercel.app/company/${id}`)
             setCompanyName(res.data.company.name)
             setCompany(id)
         } catch (error) {
@@ -22,7 +22,7 @@ export const ShowInstallation = () => {
 
     const getData = async () => {
         try {
-            const res = await axios.get(`http://sigus-server.vercel.app/api/installations_numbers/${id.idInstallation}`);
+            const res = await axios.get(`http://sigus-server.vercel.app/installations_numbers/${id.idInstallation}`);
             setInstallation(res.data);
             getCompanyName(res.data.idCompany)
         } catch (error) {

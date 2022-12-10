@@ -40,7 +40,7 @@ export const EditInstallation = () => {
 
     const getData = async () => {
         try {
-            const res = await axios.get(`http://sigus-server.vercel.app/api/installations_numbers/${id.idInstallation}`);
+            const res = await axios.get(`http://sigus-server.vercel.app/installations_numbers/${id.idInstallation}`);
             setNumberInstallation(res.data.numberInstallation);
             console.log(res.data)
         } catch (error) {
@@ -62,7 +62,7 @@ export const EditInstallation = () => {
                 numberInstallation
             };
             const res = await axios.put(
-                `http://sigus-server.vercel.app/api/installations_numbers/${id.idInstallation}/edit`,
+                `http://sigus-server.vercel.app/installations_numbers/${id.idInstallation}/edit`,
                 installation,
             );
             toast.dismiss();
