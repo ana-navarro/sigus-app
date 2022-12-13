@@ -2,7 +2,8 @@
   "name": "client",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://sigus-app.vercel.app/",
+  "homepage": "https://sigus-app.vercel.app",
+  "proxy": "http://181.215.134.184:5000",
   "dependencies": {
     "@emotion/react": "^11.10.4",
     "@emotion/styled": "^11.10.4",
