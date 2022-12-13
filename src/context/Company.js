@@ -2,6 +2,7 @@ import axios from "axios";
 import { createContext, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
+import api from "../services/api";
 
 export const CompanyContext = createContext({
     companiesMap: null,
@@ -21,7 +22,7 @@ export const CompanyProvider = ({ children }) => {
 
     useEffect(() => {
         const fetchCompanies = async () => {
-            const response = await axios.get("http://181.215.134.184:5000/api/company/");
+            const response = await api.get("/api/company/");
             setCompaniesMap(response.data)
         }
         fetchCompanies()
@@ -30,8 +31,8 @@ export const CompanyProvider = ({ children }) => {
     const updateCompany = async (e) => {
         e.preventDefault();
         try {
-            const res = await axios.put(
-                `http://181.215.134.184:5000/api/company/${company.id}/edit`,
+            const res = await api.put(
+                `/api/company/${company.id}/edit`,
                 company,
             );
             toast.dismiss();

@@ -4,6 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import { toast, ToastContainer } from 'react-toastify';
 import axios from 'axios';
 import { MenuItem, Select } from '@material-ui/core';
+import api from '../../../services/api';
 
 export const AddInstallation = () => {
     const [idCompany, setIdCompany] = useState();
@@ -24,7 +25,7 @@ export const AddInstallation = () => {
         }
         console.log(newInstall)
         try {
-            const response = await axios.post("http://181.215.134.184:5000/api/installations_numbers/add", newInstall);
+            const response = await api.post("/api/installations_numbers/add", newInstall);
             toast.dismiss();
             navigate('/installations')
             toast.success(response.data.msg);
@@ -36,7 +37,7 @@ export const AddInstallation = () => {
 
     useEffect(() => {
         const fetchTechnical = async () => {
-            const res = await axios.get('http://181.215.134.184:5000/api/company/');
+            const res = await api.get('/api/company/');
             setCompanies(res.data);
         };
         fetchTechnical();

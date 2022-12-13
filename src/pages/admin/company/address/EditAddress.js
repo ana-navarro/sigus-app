@@ -5,6 +5,7 @@ import { useForm } from 'react-hook-form';
 import { useNavigate, useParams } from 'react-router-dom'
 import { toast, ToastContainer } from 'react-toastify';
 import Swal from 'sweetalert2';
+import api from '../../../../services/api';
 import { FormLabel, BlockInput, CityInput, CountryInput, FormBody, FormContent, FormTitle, InputGroup, MoreInfoInput, NumberInput, PostalCodeInput, StateInput, StreetInput, AddressButtonGroup, SubmitButton } from './styled.style';
 
 export const EditAddress = () => {
@@ -31,7 +32,7 @@ export const EditAddress = () => {
     useEffect(() => {
         const getAddress = async () => {
             try {
-                const res = await axios.get(`http://181.215.134.184:5000/api/company/${id.idAddress}/address/info`);
+                const res = await api.get(`/api/company/${id.idAddress}/address/info`);
                 setStreet(res.data.street);
                 setNumber(res.data.number);
                 setMoreInfo(res.data.moreInfo);
@@ -72,7 +73,7 @@ export const EditAddress = () => {
         const newAddress = { street, block, postalCode, number, state, city, country, moreInfo };
         try {
             console.log(newAddress)
-            const res = await axios.put(`http://181.215.134.184:5000/api/company/${id.idAddress}/address/edit`, newAddress);
+            const res = await api.put(`/api/company/${id.idAddress}/address/edit`, newAddress);
             toast.dismiss();
             toast.success(res.data.msg);
             navigate(`/company/`)

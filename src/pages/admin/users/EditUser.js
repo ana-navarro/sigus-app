@@ -5,6 +5,7 @@ import { ToastContainer, toast } from 'react-toastify';
 import { Button } from 'react-bootstrap';
 import { FormBody, FormButton, FormContent, GenericInput, SubmitButton } from './styled.style'
 import Swal from 'sweetalert2';
+import api from '../../../services/api';
 
 export const EditUser = () => {
   const [name, setName] = useState('');
@@ -19,8 +20,8 @@ export const EditUser = () => {
 
   const getData = async () => {
     try {
-      const res = await axios.get(
-        `http://181.215.134.184:5000/api/users/${id.idUser}`,
+      const res = await api.get(
+        `/api/users/${id.idUser}`,
       );
       setName(res.data.user.name);
       setEmail(res.data.user.email);
@@ -43,8 +44,8 @@ export const EditUser = () => {
         name,
         email,
       };
-      const res = await axios.put(
-        `http://181.215.134.184:5000/api/users/${id.idUser}/edit`,
+      const res = await api.put(
+        `/api/users/${id.idUser}/edit`,
         userObj,
       );
       toast.dismiss();

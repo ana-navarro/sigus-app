@@ -2,6 +2,7 @@ import axios from 'axios';
 import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom';
 import { ToastContainer } from 'react-toastify';
+import api from '../../../../services/api';
 import { AddressDeleteButton, AddressEditButton, AddressLinks, AddressName, AddressShowInfo, AddressTitleGroup } from './styled.style'
 
 export const ShowAddress = () => {
@@ -11,7 +12,7 @@ export const ShowAddress = () => {
 
     const getAddress = async () => {
         try {
-            const res = await axios.get(`http://181.215.134.184:5000/api/company/${id.idCompany}/address`);
+            const res = await api.get(`/api/company/${id.idCompany}/address`);
             setAddress(res.data[0]);
             console.log(res.data);
         } catch (error) {

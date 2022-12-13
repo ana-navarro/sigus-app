@@ -3,6 +3,7 @@ import React, { useEffect, useState } from 'react';
 import { Button } from 'react-bootstrap';
 import { Link, useParams } from 'react-router-dom';
 import { ToastContainer } from 'react-toastify';
+import api from '../../../services/api';
 import { DeleteButton, EditButton, ShowInfo, ShowName, ShowTitle, UnstyledLinks } from './styled.style'
 
 export const ShowUser = () => {
@@ -12,7 +13,7 @@ export const ShowUser = () => {
   useEffect(() => {
     const getData = async () => {
       try {
-        const res = await axios.get(`http://181.215.134.184:5000/api/users/${idUser}`);
+        const res = await api.get(`/api/users/${idUser}`);
         setUser(res.data.user);
       } catch (error) {
         console.error(error);

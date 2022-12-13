@@ -1,5 +1,6 @@
 import axios from "axios";
 import { createContext, useEffect, useState } from "react";
+import api from "../services/api";
 
 export const PaymentContext = createContext({
     idClient: null,
@@ -21,7 +22,7 @@ export const PaymentProvider = ({ children }) => {
 
     useEffect(() => {
         const fetchClientData = async () => {
-            const res = await axios.get(`http://181.215.134.184:5000/api/client/${idClient}`)
+            const res = await api.get(`/api/client/${idClient}`)
             setClient(res.data);
         }
         fetchClientData();
@@ -29,7 +30,7 @@ export const PaymentProvider = ({ children }) => {
 
     useEffect(() => {
         const fetchCreditData = async () => {
-            const res = await axios.get(`http://181.215.134.184:5000/api/credit/${idCredit}`)
+            const res = await api.get(`api/credit/${idCredit}`)
             setCredit(res.data)
         }
     }, [idCredit]);

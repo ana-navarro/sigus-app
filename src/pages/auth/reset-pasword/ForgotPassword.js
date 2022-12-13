@@ -4,6 +4,7 @@ import { ToastContainer, toast } from 'react-toastify';
 import axios from 'axios';
 import { Container } from 'react-bootstrap';
 import { TextField } from '@material-ui/core';
+import api from '../../../services/api';
 
 export const ForgotPassword = () => {
     const id = useParams()
@@ -16,7 +17,7 @@ export const ForgotPassword = () => {
             password
         }
         try {
-            const res = await axios.post(`http://181.215.134.184:5000/api/forgotpassword/${id.id}`, newPassword)
+            const res = await api.post(`/api/forgotpassword/${id.id}`, newPassword)
             toast.dismiss();
             toast.success("Senha alterada com sucesso");
             navigate('/')

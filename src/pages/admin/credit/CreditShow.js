@@ -10,6 +10,8 @@ import Dialog from '@mui/material/Dialog';
 import { DemoPdf } from './demos/DemoPdf';
 import { FaTimes } from "react-icons/fa";
 import { PayButton } from '../../clients/PayButton';
+import api from '../../../services/api';
+import { Container } from '@mui/material';
 
 export const ShowCredit = () => {
     const [credit, setCredit] = useState([]);
@@ -26,7 +28,7 @@ export const ShowCredit = () => {
     const id = useParams();
     const getInstallationNumber = async (id) => {
         try {
-            const res = await axios.get(`http://181.215.134.184:5000/api/installations_numbers/${id}`)
+            const res = await api.get(`/api/installations_numbers/${id}`)
             setInstallationNumber(res.data.numberInstallation);
             getCompanyData(res.data.idCompany);
             getAddressData(res.data.idCompany);
@@ -37,7 +39,7 @@ export const ShowCredit = () => {
 
     const getAddressData = async (id) => {
         try {
-            const res = await axios.get(`http://181.215.134.184:5000/api/company/${id}/address`);
+            const res = await api.get(`/api/company/${id}/address`);
             setAddress(res.data[0]);
         } catch (error) {
             console.error(error);
@@ -46,7 +48,7 @@ export const ShowCredit = () => {
 
     const getCompanyData = async (id) => {
         try {
-            const res = await axios.get(`http://181.215.134.184:5000/api/company/${id}`);
+            const res = await api.get(`/api/company/${id}`);
             setCompany(res.data.company)
             setEmail(res.data.company.email)
         } catch (error) {
@@ -56,7 +58,7 @@ export const ShowCredit = () => {
 
     const getData = async () => {
         try {
-            const res = await axios.get(`http://181.215.134.184:5000/api/credit/${id.idCredit}`);
+            const res = await api.get(`/api/credit/${id.idCredit}`);
             setCredit(res.data);
             setMonth(res.data.month);
             setValuePayment(res.data.valuePayment);
@@ -81,7 +83,7 @@ export const ShowCredit = () => {
 
     const sendLink = async (e) => {
         e.preventDefault();
-        const res = await axios.post(`http://181.215.134.184:5000/api/credit/${id.idCredit}/send-demo`, email);
+        const res = await api.post(`/api/credit/${id.idCredit}/send-demo`, email);
         if (res.status === 201) {
             toast.success("Email enviado com sucesso!")
         } else {
@@ -110,9 +112,9 @@ export const ShowCredit = () => {
                             <a target='_blank'><PayButton valuePayment={valuePayment} month={month} email={email} id={credit._id} /></a>
                         </Toolbar>
                     </AppBar>
-                    <div>
+                    <Container>
                         <DemoPdf company={company} credit={credit} address={address} installationNumber={installationNumber} />
-                    </div>
+                    </Container>
                 </Dialog>
             )}
             {!show && (
@@ -148,10 +150,12 @@ export const ShowCredit = () => {
                         <h6>Para criar uma demonstração é necessário ter endereço a empresa!</h6>
                     </div>
 
-                    <div className='row p-4'>
+                    <div className='row p-4 text center'>
                         {address && (
-                            <AddDemo onClick={handleOpenDialog}>Gerar Demo</AddDemo>
+                            <AddDemo onClick={handleOpenDialog}>Gerar PDF da Demo</AddDemo>
+
                         )}
+                        <AddDemo><UnstyledLinks to={`/demo/${id.idCredit}`}>Ver Demo</UnstyledLinks></AddDemo>
                         <PaymentButton onClick={sendLink}>Enivar</PaymentButton>
                     </div>
                 </div>

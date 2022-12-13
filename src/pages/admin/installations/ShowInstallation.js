@@ -3,6 +3,7 @@ import { Link, useParams } from 'react-router-dom';
 import axios from 'axios';
 import { ToastContainer } from 'react-toastify';
 import { DeleteButton, EditButton, ShowInfo, ShowName, ShowTitle, UnstyledLinks } from './styled.style';
+import api from '../../../services/api';
 
 export const ShowInstallation = () => {
     const [installation, setInstallation] = useState([]);
@@ -12,7 +13,7 @@ export const ShowInstallation = () => {
     const id = useParams();
     const getCompanyName = async (id) => {
         try {
-            const res = await axios.get(`http://181.215.134.184:5000/api/company/${id}`)
+            const res = await api.get(`/api/company/${id}`)
             setCompanyName(res.data.company.name)
             setCompany(id)
         } catch (error) {
@@ -22,7 +23,7 @@ export const ShowInstallation = () => {
 
     const getData = async () => {
         try {
-            const res = await axios.get(`http://181.215.134.184:5000/api/installations_numbers/${id.idInstallation}`);
+            const res = await api.get(`/api/installations_numbers/${id.idInstallation}`);
             setInstallation(res.data);
             getCompanyName(res.data.idCompany)
         } catch (error) {

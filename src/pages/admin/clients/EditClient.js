@@ -6,6 +6,7 @@ import Swal from 'sweetalert2';
 import { FormBody } from '../company/styled.style';
 
 import { FormButton, FormContent, FormLabel, GenericInput, InputGroup, SubmitButton } from './styled.style';
+import api from '../../../services/api';
 
 export const EditClient = () => {
     const [firstName, setFirstName] = useState('');
@@ -57,8 +58,8 @@ export const EditClient = () => {
     useEffect(() => {
         const getData = async () => {
             try {
-                const res = await axios.get(
-                    `http://181.215.134.184:5000/api/client/${id.idClient}`,
+                const res = await api.get(
+                    `/api/client/${id.idClient}`,
                 );
                 setIdCompany(res.data.idCompany);
                 setFirstName(res.data.firstName);
@@ -95,8 +96,8 @@ export const EditClient = () => {
                 lastName,
                 idCompany
             };
-            const res = await axios.put(
-                `http://181.215.134.184:5000/api/client/${id.idClient}/edit`,
+            const res = await api.put(
+                `/api/client/${id.idClient}/edit`,
                 userObj,
             );
             toast.dismiss();

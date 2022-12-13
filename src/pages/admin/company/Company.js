@@ -4,7 +4,7 @@ import { Table } from './components/Table';
 import { CompanyContext } from '../../../context/Company';
 import { ToastContainer } from 'react-bootstrap';
 import { Pagination } from '../../../components/Pagination'
-import axios from "axios";
+import api from "../../../services/api";
 
 export const Company = () => {
     const [data, setData] = useState([]);
@@ -18,7 +18,7 @@ export const Company = () => {
 
     useEffect(() => {
         const fetchCompanies = async () => {
-            const response = await axios.get("http://181.215.134.184:5000/api/company/");
+            const response = await api.get("/api/company/");
             setData(response.data)
             setCurrentPage(1);
         }

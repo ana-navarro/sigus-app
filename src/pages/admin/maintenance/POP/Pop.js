@@ -4,6 +4,7 @@ import { Title } from '../styled.style';
 import { AddPop } from './AddPop';
 import { Pagination } from '../../../../components/Pagination';
 import { TablePop } from './Components/TablePop';
+import api from '../../../../services/api';
 
 export const Pop = () => {
   const [pop, setPop] = useState();
@@ -17,7 +18,7 @@ export const Pop = () => {
 
   async function getPop() {
     try {
-      const result = await axios.get(`http://181.215.134.184:5000/api/pops`);
+      const result = await api.get(`api/pops`);
       console.log(result.data);
       setPop(result.data);
       setCurrentPage(1);

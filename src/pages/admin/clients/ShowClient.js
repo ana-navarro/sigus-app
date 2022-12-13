@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react'
 import { Link, useParams } from 'react-router-dom';
-import axios from 'axios';
 import { ToastContainer } from 'react-toastify';
 import { DeleteButton, EditButton, ShowInfo, ShowName, ShowTitle, UnstyledLinks } from './styled.style';
+import api from '../../../services/api';
 
 export const ShowClient = () => {
     const [client, setClient] = useState([]);
@@ -13,7 +13,7 @@ export const ShowClient = () => {
 
     const getData = async () => {
         try {
-            const res = await axios.get(`http://181.215.134.184:5000/api/client/${id.idClient}`);
+            const res = await api.get(`/api/client/${id.idClient}`);
             setClient(res.data);
             setCompany(res.data.idCompany);
         } catch (error) {
@@ -29,7 +29,7 @@ export const ShowClient = () => {
     useEffect(() => {
         const getCompanyName = async () => {
             try {
-                const res = await axios.get(`http://181.215.134.184:5000/api/company/${company}`)
+                const res = await api.get(`/api/company/${company}`)
                 setCompanyName(res.data.company.name)
             } catch (error) {
                 console.error(error);

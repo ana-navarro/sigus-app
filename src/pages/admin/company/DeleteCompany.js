@@ -2,6 +2,7 @@ import React from 'react'
 import { Link, useParams, useNavigate } from 'react-router-dom';
 import Swal from 'sweetalert2';
 import axios from 'axios';
+import api from '../../../services/api';
 
 export const DeleteCompany = () => {
     const id = useParams();
@@ -30,8 +31,8 @@ export const DeleteCompany = () => {
 
     async function excludeUser(id) {
         try {
-            const res = await axios.delete(
-                `http://181.215.134.184:5000/api/company/${id}/delete`,
+            const res = await api.delete(
+                `/api/company/${id}/delete`,
             );
         } catch (error) {
             console.log(error);

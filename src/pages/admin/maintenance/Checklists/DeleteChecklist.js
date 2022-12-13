@@ -2,6 +2,7 @@ import axios from 'axios';
 import React from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import Swal from 'sweetalert2';
+import api from '../../../../services/api';
 
 export const DeleteChecklist = () => {
   const { idChecklist } = useParams();
@@ -28,8 +29,8 @@ export const DeleteChecklist = () => {
 
   const excludeChecklist = async () => {
     try {
-      const checklist = axios.delete(
-        `http://181.215.134.184:5000/api/technical/checklist/remove/${idChecklist}`,
+      const checklist = api.delete(
+        `api/technical/checklist/remove/${idChecklist}`,
       );
     } catch (error) {
       console.log(error);

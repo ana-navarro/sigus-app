@@ -7,6 +7,7 @@ import { ButtonGroup, FormBody, FormContent, FormLabel, FormTitle, GenericInput,
 import InputMask from "react-input-mask";
 import { MenuItem, Select } from '@material-ui/core';
 import { CompanyContext } from '../../../context/Company'
+import api from '../../../services/api';
 
 export const CreateClient = () => {
     const [idCompany, setIdCompany] = useState(null);
@@ -30,7 +31,7 @@ export const CreateClient = () => {
         }
         console.log(newClient)
         try {
-            const response = await axios.post("http://181.215.134.184:5000/api/client/add", newClient);
+            const response = await api.post("/api/client/add", newClient);
             toast.dismiss();
             navigate('/clients')
             toast.success(response.data.msg);

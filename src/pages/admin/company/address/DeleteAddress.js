@@ -3,6 +3,7 @@ import React from 'react'
 import { useNavigate, useParams } from 'react-router-dom'
 import { toast } from 'react-toastify';
 import Swal from 'sweetalert2';
+import api from '../../../../services/api';
 
 export const DeleteAddress = () => {
     const idAddress = useParams();
@@ -29,8 +30,8 @@ export const DeleteAddress = () => {
 
     async function excludeUser(id) {
         try {
-            const res = await axios.delete(
-                `http://181.215.134.184:5000/api/company/${id}/address/delete`,
+            const res = await api.delete(
+                `/api/company/${id}/address/delete`,
             );
             toast.dismiss();
             toast.success(res.data.msg)

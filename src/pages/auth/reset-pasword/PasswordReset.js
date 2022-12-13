@@ -4,6 +4,7 @@ import React, { useState } from 'react'
 import { Container } from 'react-bootstrap';
 import { useNavigate } from 'react-router-dom';
 import { ToastContainer, toast } from 'react-toastify';
+import api from '../../../services/api';
 
 export const PasswordReset = () => {
 
@@ -26,7 +27,7 @@ export const PasswordReset = () => {
             });
         } else {
             console.log(email)
-            const res = await axios.post("http://181.215.134.184:5000/api/reset-password", email);
+            const res = await api.post("/api/reset-password", email);
             const data = await res.json();
             if (data.status === 201) {
                 setEmail("");

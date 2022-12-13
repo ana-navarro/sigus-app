@@ -6,6 +6,7 @@ import { FormTitle, InputGroup, FormBody, FormLabel, GenericInput, ButtonGroup, 
 import { MenuItem, Select } from '@material-ui/core';
 import { Number } from './installations/Number';
 import Swal from 'sweetalert2';
+import api from '../../../services/api';
 
 const monthsOptions = [
     { value: 'Janeiro', label: 'Janeiro', key: 1 },
@@ -130,7 +131,7 @@ export const EditCredit = () => {
     useEffect(() => {
         const getData = async () => {
             try {
-                const res = await axios.get(`http://181.215.134.184:5000/api/credit/${id.idCredit}`);
+                const res = await api.get(`/api/credit/${id.idCredit}`);
                 setConsumed(res.data.consumed)
                 setDiscount(res.data.discount)
                 setDistribuition(res.data.distribuition)
@@ -176,9 +177,8 @@ export const EditCredit = () => {
                 valueDiscount,
                 valuePayment
             }
-            const res = await axios.put(`http://181.215.134.184:5000/api/credit/${id.idCredit}/edit`, updatedCredit);
+            const res = await api.put(`/api/credit/${id.idCredit}/edit`, updatedCredit);
             toast.dismiss();
-            toast.success(res.data.msg);
             navigate(`/credit/`);
         } catch (error) {
             console.log(error);
@@ -190,7 +190,7 @@ export const EditCredit = () => {
     useEffect(() => {
         const getDataInstall = async () => {
             try {
-                const res = await axios.get(`http://181.215.134.184:5000/api/installations_numbers/${idInstallation}`);
+                const res = await api.get(`/api/installations_numbers/${idInstallation}`);
                 setInstallationNumber(res.data.numberInstallation);
                 console.log(res.data)
             } catch (error) {

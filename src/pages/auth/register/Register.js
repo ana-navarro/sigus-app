@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import api from '../../../services/api';
 import { ButtonGroup, FormBody, FormTitle, GenericInput, InputGroup, SubmitButton } from './styled.style'
 
 export const Register = () => {
@@ -24,8 +25,8 @@ export const Register = () => {
         confirmPassword,
       };
       try {
-        const response = await axios.post(
-          'http://181.215.134.184:5000/api/register/',
+        const response = await api.post(
+          '/api/register/',
           userObj,
         );
         console.log(response.msg)

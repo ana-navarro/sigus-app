@@ -2,6 +2,7 @@ import axios from 'axios';
 import React, { useEffect, useMemo, useState } from 'react'
 import { Table } from './components/Table';
 import { Pagination } from '../../../components/Pagination'
+import api from '../../../services/api';
 
 export const Credit = () => {
     const [credits, setCredits] = useState([]);
@@ -10,7 +11,7 @@ export const Credit = () => {
     useEffect(() => {
         const getData = async () => {
             try {
-                const response = await axios.get("http://181.215.134.184:5000/api/credit");
+                const response = await api.get("/api/credit");
                 setCredits(response.data);
                 setCurrentPage(1);
             } catch (error) {

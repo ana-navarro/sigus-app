@@ -7,6 +7,7 @@ import { toast, ToastContainer } from 'react-toastify';
 import { SubmitButton } from '../styled.style';
 import { FormLabel, BlockInput, CityInput, CountryInput, FormBody, FormContent, FormTitle, InputGroup, MoreInfoInput, NumberInput, PostalCodeInput, StateInput, StreetInput, AddressButtonGroup } from './styled.style';
 import InputMask from "react-input-mask";
+import api from '../../../../services/api';
 
 export const AddAddress = () => {
     const [street, setStreet] = useState('');
@@ -32,7 +33,7 @@ export const AddAddress = () => {
         const newAddress = { street, block, idCompany, postalCode, number, state, city, country, moreInfo };
         try {
             console.log(newAddress)
-            const res = await axios.post(`http://181.215.134.184:5000/api/company/${idCompany}/address/add`, newAddress);
+            const res = await api.post(`/api/company/${idCompany}/address/add`, newAddress);
             toast.dismiss();
             toast.success(res.data.msg);
             navigate(`/company/${idCompany}`)

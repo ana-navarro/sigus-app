@@ -4,6 +4,7 @@ import { useParams } from 'react-router-dom'
 import { CompanyAddButton, CompanyButtonGroup, CompanyDeleteButton, CompanyEditButton, CompanyLinks, CompanyName, CompanyShowInfo, CompanyShowTitle } from './styled.style';
 import { ShowAddress } from './address/ShowAddress';
 import { ToastContainer } from 'react-toastify';
+import api from '../../../services/api';
 
 export const ShowCompany = () => {
     const [company, setCompany] = useState([]);
@@ -17,7 +18,7 @@ export const ShowCompany = () => {
 
     const getData = async () => {
         try {
-            const res = await axios.get(`http://181.215.134.184:5000/api/company/${id.idCompany}`);
+            const res = await api.get(`/api/company/${id.idCompany}`);
             setCompany(res.data.company);
         } catch (error) {
             console.error(error);
@@ -29,7 +30,7 @@ export const ShowCompany = () => {
 
     const getAddress = async () => {
         try {
-            const res = await axios.get(`http://181.215.134.184:5000/api/company/${id.idCompany}/address`);
+            const res = await api.get(`/api/company/${id.idCompany}/address`);
             if (res.data.length !== 0) {
                 setShowAddress(true);
                 setAddress(res.data);

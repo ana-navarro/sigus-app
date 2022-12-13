@@ -2,6 +2,7 @@ import React from 'react'
 import { useNavigate, useParams } from 'react-router-dom'
 import Swal from 'sweetalert2';
 import axios from 'axios';
+import api from '../../../services/api';
 
 export const DeleteInstallation = () => {
     const id = useParams();
@@ -27,8 +28,8 @@ export const DeleteInstallation = () => {
 
     async function excluirInstallation(id) {
         try {
-            const res = await axios.delete(
-                `http://181.215.134.184:5000/api/installations_numbers/${id}/delete`,
+            const res = await api.delete(
+                `/api/installations_numbers/${id}/delete`,
             );
         } catch (error) {
             console.log(error)

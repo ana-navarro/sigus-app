@@ -4,6 +4,7 @@ import axios from 'axios';
 import { ToastContainer, toast } from 'react-toastify';
 import Swal from 'sweetalert2';
 import { FormBody, FormButton, FormContent, GenericInput, SubmitButton } from './styled.style';
+import api from '../../../services/api';
 
 export const EditInstallation = () => {
     const [numberInstallation, setNumberInstallation] = useState();
@@ -40,7 +41,7 @@ export const EditInstallation = () => {
 
     const getData = async () => {
         try {
-            const res = await axios.get(`http://181.215.134.184:5000/api/installations_numbers/${id.idInstallation}`);
+            const res = await api.get(`/api/installations_numbers/${id.idInstallation}`);
             setNumberInstallation(res.data.numberInstallation);
             console.log(res.data)
         } catch (error) {
@@ -61,8 +62,8 @@ export const EditInstallation = () => {
             const installation = {
                 numberInstallation
             };
-            const res = await axios.put(
-                `http://181.215.134.184:5000/api/installations_numbers/${id.idInstallation}/edit`,
+            const res = await api.put(
+                `/api/installations_numbers/${id.idInstallation}/edit`,
                 installation,
             );
             toast.dismiss();

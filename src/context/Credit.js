@@ -1,5 +1,6 @@
 import axios from "axios";
 import { createContext, useEffect, useState } from "react";
+import api from "../services/api";
 
 export const CreditContext = createContext({
     creditMap: null,
@@ -19,7 +20,7 @@ export const CreditProvider = ({ children }) => {
 
     useEffect(() => {
         const fetchCredits = async () => {
-            const res = await axios.get("http://181.215.134.184:5000/api/credit")
+            const res = await api.get("/api/credit")
             setCreditMap(res.data)
         }
         fetchCredits()

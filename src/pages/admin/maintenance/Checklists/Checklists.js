@@ -2,6 +2,7 @@ import axios from 'axios';
 import React, { useState, useEffect } from 'react';
 import { Table } from 'react-bootstrap';
 import { useNavigate, useParams } from 'react-router-dom';
+import api from '../../../../services/api';
 import { Title, Td, IconDelete, IconEdit } from '../styled.style';
 
 export const Checklists = () => {
@@ -11,8 +12,8 @@ export const Checklists = () => {
 
   const getInstallations = async () => {
     try {
-      const result = await axios.get(
-        `http://181.215.134.184:5000/api/technical/checklist/all/${idInstallations}`,
+      const result = await api.get(
+        `api/technical/checklist/all/${idInstallations}`,
       );
       console.log(result.data);
       setChecklists(result.data);

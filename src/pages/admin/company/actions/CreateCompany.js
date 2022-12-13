@@ -2,7 +2,7 @@ import React from 'react'
 import { useNavigate } from 'react-router-dom';
 import { toast, ToastContainer } from 'react-toastify';
 import { FormButton, SubmitButton } from '../styled.style';
-import axios from 'axios'
+import api from '../../../../services/api';
 
 export const CreateCompanyButton = (props) => {
     const name = props.name;
@@ -19,7 +19,7 @@ export const CreateCompanyButton = (props) => {
             name, email, cnpj, phone, idAddress
         }
         try {
-            const response = await axios.post("http://181.215.134.184:5000/api/company/add", newCompany);
+            const response = await api.post("/api/company/add", newCompany);
             toast.dismiss();
             toast.success(response.data.msg);
             navigate('/company')

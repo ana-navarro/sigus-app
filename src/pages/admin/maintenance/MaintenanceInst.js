@@ -3,6 +3,7 @@ import axios from 'axios';
 import { TableInst } from './Components/TableInst';
 import { Title } from './styled.style';
 import { Pagination } from '../../../components/Pagination';
+import api from '../../../services/api';
 
 export const MaintenanceInst = () => {
   const [installations, setInstallations] = useState([]);
@@ -16,8 +17,8 @@ export const MaintenanceInst = () => {
 
   useEffect(() => {
     const fetchInstallations = async () => {
-      const res = await axios.get(
-        `http://181.215.134.184:5000/api/installations_numbers/`,
+      const res = await api.get(
+        `api/installations_numbers/`,
       );
       setInstallations(res.data);
       setCurrentPage(1);

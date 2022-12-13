@@ -1,6 +1,7 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom';
+import api from '../../../../services/api';
 
 export const Number = props => {
     const [installationNumber, setInstallationNumber] = useState([]);
@@ -8,7 +9,7 @@ export const Number = props => {
 
     const getData = async () => {
         try {
-            const res = await axios.get(`http://181.215.134.184:5000/api/installations_numbers/${id}`);
+            const res = await api.get(`/api/installations_numbers/${id}`);
             setInstallationNumber(res.data);
         } catch (error) {
             console.log(error)

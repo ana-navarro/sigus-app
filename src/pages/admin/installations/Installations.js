@@ -3,6 +3,7 @@ import axios from 'axios'
 import { ToastContainer } from 'react-toastify';
 import { Table } from './components/Table';
 import { Pagination } from '../../../components/Pagination'
+import api from '../../../services/api';
 
 export const Installations = () => {
     const [installations, setInstallations] = useState([]);
@@ -10,7 +11,7 @@ export const Installations = () => {
 
     useEffect(() => {
         const fetchInstallations = async () => {
-            const res = await axios.get(`http://181.215.134.184:5000/api/installations_numbers/`);
+            const res = await api.get(`/api/installations_numbers/`);
             setInstallations(res.data);
             setCurrentPage(1);
         }

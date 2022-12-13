@@ -4,6 +4,7 @@ import { Table, Button } from 'react-bootstrap'
 import { FaPen } from "react-icons/fa";
 import { FaTrashAlt } from "react-icons/fa";
 import './list.style.css';
+import api from '../../../../services/api'
 
 export const ListUser = props => {
     const [users, setUsers] = useState();
@@ -11,7 +12,7 @@ export const ListUser = props => {
 
     const getData = async () => {
         try {
-            const response = await axios.get(`http://181.215.134.184:5000/api/company/${idCompany}/users`);
+            const response = await api.get(`api/company/${idCompany}/users`);
             setUsers(response.data)
         } catch (error) {
             console.log(error)

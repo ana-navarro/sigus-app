@@ -1,6 +1,7 @@
 import React from 'react'
 import axios from 'axios'
 import { PaymentButton } from './styled.style'
+import api from '../../services/api'
 
 export const PayButton = ({ valuePayment, month, email, id }) => {
     const handleCheckout = async () => {
@@ -9,7 +10,7 @@ export const PayButton = ({ valuePayment, month, email, id }) => {
             month,
             email
         ]
-        await axios.post(`http://181.215.134.184:5000/api/stripe/${id}/payment`, body)
+        await api.post(`/api/stripe/${id}/payment`, body)
             .then((res) => {
                 if (res.data.url) {
                     window.location.href = res.data.url

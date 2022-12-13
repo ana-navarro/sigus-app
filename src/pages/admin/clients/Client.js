@@ -3,6 +3,7 @@ import axios from 'axios'
 import { TableClients } from './components/Table';
 import { ToastContainer } from 'react-toastify';
 import { Pagination } from '../../../components/Pagination'
+import api from '../../../services/api';
 
 export const Client = () => {
     const [clients, setClients] = useState([]);
@@ -10,7 +11,7 @@ export const Client = () => {
 
     useEffect(() => {
         const fetchClients = async () => {
-            const res = await axios.get("http://181.215.134.184:5000/api/client");
+            const res = await api.get("/api/client");
             setClients(res.data);
         }
 

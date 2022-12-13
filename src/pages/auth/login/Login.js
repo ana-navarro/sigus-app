@@ -4,6 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import { UserContext } from '../../../context/User';
 import { Container } from 'react-bootstrap';
+import api from '../../../services/api';
 
 export const Login = () => {
   const [email, setEmail] = useState();
@@ -16,7 +17,7 @@ export const Login = () => {
     e.preventDefault();
 
     try {
-      const response = await axios.post('http://181.215.134.184:5000/api/login/', {
+      const response = await api.post('/api/login/', {
         email,
         password,
       });
