@@ -38,7 +38,7 @@ export const CreditAdd = () => {
 
     useEffect(() => {
         const getInstallation = async () => {
-            const response = await axios.get(`https://181.215.134.184:5000/api/installations_numbers/`);
+            const response = await axios.get(`http://181.215.134.184:5000/api/installations_numbers/`);
             setInstall(response.data);
         }
         getInstallation()
@@ -59,7 +59,7 @@ export const CreditAdd = () => {
             expirationDate,
         }
         try {
-            const res = await axios.post("https://181.215.134.184:5000/api/credit/add", newCredit);
+            const res = await axios.post("http://181.215.134.184:5000/api/credit/add", newCredit);
             toast.dismiss();
             console.log(res.data.msg)
             toast.success(res.data.msg);

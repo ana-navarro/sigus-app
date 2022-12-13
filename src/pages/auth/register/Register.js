@@ -25,7 +25,7 @@ export const Register = () => {
       };
       try {
         const response = await axios.post(
-          'https://181.215.134.184:5000/api/register/',
+          'http://181.215.134.184:5000/api/register/',
           userObj,
         );
         console.log(response.msg)

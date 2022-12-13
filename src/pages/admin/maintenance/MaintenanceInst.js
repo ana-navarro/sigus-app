@@ -17,7 +17,7 @@ export const MaintenanceInst = () => {
   useEffect(() => {
     const fetchInstallations = async () => {
       const res = await axios.get(
-        `https://181.215.134.184:5000/api/installations_numbers/`,
+        `http://181.215.134.184:5000/api/installations_numbers/`,
       );
       setInstallations(res.data);
       setCurrentPage(1);

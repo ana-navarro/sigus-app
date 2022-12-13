@@ -10,7 +10,7 @@ export const Client = () => {
 
     useEffect(() => {
         const fetchClients = async () => {
-            const res = await axios.get("https://181.215.134.184:5000/api/client");
+            const res = await axios.get("http://181.215.134.184:5000/api/client");
             setClients(res.data);
         }
 
