@@ -21,8 +21,6 @@ export const Login = () => {
         password,
       });
 
-      console.log(response);
-
       toast.dismiss();
       toast.success(response.data.message);
       localStorage.setItem('x-auth-token', response.data.data);
