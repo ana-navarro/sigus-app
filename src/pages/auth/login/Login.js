@@ -17,9 +17,9 @@ export const Login = () => {
     e.preventDefault();
 
     try {
-      const res = await api.post("/api/login/", {
-        email,
-        password,
+      const formData = { email, password }
+      const res = await api.post("/api/login/", formData, {
+        headers: { Authorization: `x-auth-token` }
       });
 
       toast.dismiss();
