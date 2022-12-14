@@ -19,7 +19,7 @@ export const Login = () => {
     try {
       const formData = { email, password }
       const res = await api.post("/api/login/", formData, {
-        headers: { Authorization: `x-auth-token` }
+        method: POST
       });
 
       toast.dismiss();

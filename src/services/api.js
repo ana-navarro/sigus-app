@@ -5,7 +5,7 @@ const api = axios.create({
 });
 
 api.defaults.headers.common['Access-Control-Allow-Origin'] = '*'
-api.defaults.headers.common['Access-Control-Allow-Headers'] = '*'
+api.defaults.headers.common['Access-Control-Allow-Headers'] = 'Origin, X-Requested-With, Content-Type, Accept, Authorization, X-CSRF-TOKEN, Game-Token, developerKey'
 api.defaults.headers.common['Content'] = 'application/json'
 api.defaults.headers.common['Access-Control-Allow-Methods'] = '*'
 api.defaults.headers.common['ngrok-skip-browser-warning'] = 'any'
