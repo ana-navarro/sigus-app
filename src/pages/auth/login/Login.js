@@ -19,7 +19,6 @@ export const Login = () => {
     try {
       const formData = { email, password }
       const res = await api.post("/api/login/", formData, {
-        method: POST,
         headers: {
           'Accept': 'application/json'
         }
