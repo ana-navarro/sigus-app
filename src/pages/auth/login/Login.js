@@ -18,11 +18,8 @@ export const Login = () => {
 
     try {
       const formData = { email, password }
-      const res = await api.post("/api/login/", formData, {
-        headers: {
-          'Accept': 'application/json'
-        }
-      });
+      const res = await api.post("/api/login/", formData);
+      res.setHeader('Access-Control-Allow-Headers', 'Authorization');
 
       toast.dismiss();
       toast.success(res.data.message);
