@@ -1,12 +1,13 @@
 import React from 'react'
 import { AboutText, MineraImage } from './styled.style'
+import logo from './img/logo.png'
 
 export const Home = () => {
     return (
         <>
             <div className='text-center mt-4'>
                 <h3 data-testid='about-minera'>Sobre a Minera Engenharia</h3>
-                <MineraImage data-testid='about-minera-logo' alt='minera-logo' src={'https://scontent.fmoc2-1.fna.fbcdn.net/v/t39.30808-6/239606813_1174076909734874_4735385665080596059_n.png?_nc_cat=108&ccb=1-7&_nc_sid=09cbfe&_nc_eui2=AeEZrlIhlsyMYdoL3gOMuMF_rO4Eoy060lis7gSjLTrSWOTkbUElBL5k1TVz5-vfl3JQkUgr33yTm6GrseT1U5-C&_nc_ohc=f479NREvlA4AX9aS8RZ&_nc_ht=scontent.fmoc2-1.fna&oh=00_AfBW57A_uytgA7uxEIUDgbw1a2H100RtBtwfxfDzlfyuRA&oe=63883995'} />
+                <MineraImage data-testid='about-minera-logo' alt='minera-logo' src={logo} />
             </div>
 
             <AboutText data-testid='about-minera-text'>
