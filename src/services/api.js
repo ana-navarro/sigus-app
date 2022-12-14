@@ -1,7 +1,7 @@
 import axios from 'axios'
 
 const api = axios.create({
-    baseUrl: 'http://181.215.134.184:5000/'
+    baseURL: 'http://181.215.134.184:5000'
 });
 
 api.defaults.headers.common['Access-Control-Allow-Origin'] = '*'
