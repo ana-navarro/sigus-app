@@ -10,6 +10,8 @@ import Dialog from '@mui/material/Dialog';
 import { DemoPdf } from './demos/DemoPdf';
 import { FaTimes } from "react-icons/fa";
 import { PayButton } from '../../clients/PayButton';
+import StripeCheckout from 'react-stripe-checkout';
+import { getStripe } from '../../../lib/getStripe';
 
 export const ShowCredit = () => {
     const [credit, setCredit] = useState([]);
@@ -89,6 +91,29 @@ export const ShowCredit = () => {
         }
     }
 
+    const makePayment = async () => {
+        const stripe = await getStripe();
+        const { token } = await stripe.createToken();
+
+        const body = {
+            credit,
+            email,
+            token,
+        }
+
+        return await axios.post(`http://localhost:5000/api/stripe/payment`, body)
+            .then(response => {
+                console.log("response ", response);
+                const { status } = response;
+                console.log("Staus ", status);
+                response.json();
+            })
+            .catch(error => console.log(error));
+    }
+
+    const publicKey = "pk_live_51KrQIfK3T09oXMI1PUPYlIE25cx1ZhpW6B776J8wdMIltXtiLYWx9O4e5xs2zLwAKTip9VHaZMGiogWSwMlIrlJE00u51TCxEk"
+
+
     return (
         <>
             <ToastContainer />
@@ -107,7 +132,17 @@ export const ShowCredit = () => {
                             >
                                 <FaTimes />
                             </IconButton>
-                            <a target='_blank'><PayButton valuePayment={valuePayment} month={month} email={email} id={credit._id} /></a>
+                            <StripeCheckout
+                                label="Pagar Rápido"
+                                name="Minera Engenharia - Energia Solar"
+                                description="Minera Engenharia - Energia Solar"
+                                panelLabel={`Pagar:`}
+                                currency="BRL"
+                                amount={(valuePayment + 1) * 100}
+                                token={makePayment}
+                                stripeKey={publicKey}
+                                image="https://api.renovigi.com.br/upload/images/VaUzQfsOCSPkgrl7EdWVHVxMoYFY5dMPGBk3wzQ592rM6hhQbfOdYFHpTPHquio36BuxfzOgfKjdzGDF2gj4am"
+                            />
                         </Toolbar>
                     </AppBar>
                     <div>
