@@ -1,7 +1,7 @@
 {
     "headers": [
         {
-            "source": "/(.*)",
+            "source": "181.215.134.184:5000/(.*)",
             "headers": [
                 {
                     "key": "Access-Control-Allow-Credentials",
