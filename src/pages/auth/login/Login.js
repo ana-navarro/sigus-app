@@ -17,7 +17,7 @@ export const Login = () => {
     e.preventDefault();
 
     try {
-      const response = await api.post('/api/login/', {
+      const response = await api.post('/api/login', {
         email,
         password,
       });

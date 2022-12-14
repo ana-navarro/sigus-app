@@ -26,7 +26,7 @@ export const Register = () => {
       };
       try {
         const response = await api.post(
-          '/api/register/',
+          '/api/register',
           userObj,
         );
         console.log(response.msg)
