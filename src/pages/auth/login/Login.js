@@ -18,7 +18,11 @@ export const Login = () => {
 
     try {
       const formData = { email, password }
-      const res = await api.post("/api/login/", formData);
+      const res = await api.post("/api/login/", formData, {
+        headers: {
+          Accept: '*/*'
+        }
+      });
 
       toast.dismiss();
       toast.success(res.data.message);
