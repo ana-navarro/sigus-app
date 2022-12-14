@@ -5,6 +5,7 @@ const api = axios.create({
 });
 
 api.defaults.headers.common['Access-Control-Allow-Origin'] = '*'
+api.defaults.headers.common['Access-Control-Allow-Credentials'] = 'true'
 api.defaults.headers.common['Access-Control-Allow-Headers'] = 'Origin, X-Api-Key, X-Requested-With, Content-Type, Accept, Authorization'
 api.defaults.headers.common['Content'] = 'application/json'
 api.defaults.headers.common['Access-Control-Allow-Methods'] = 'POST, PUT, GET, DELETE'
