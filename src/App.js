@@ -398,7 +398,7 @@ function App() {
 }
 
 export function ProtectedRoutes({ children }) {
-  const user = localStorage.getItem('x-auth-token');
+  const user = sessionStorage.getItem('x-auth-token');
   if (user && user !== '') {
     return children;
   } else {

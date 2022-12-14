@@ -15,8 +15,8 @@ export const Navigation = () => {
 
     const onClickLogout = async () => {
         try {
-            const removeToken = localStorage.removeItem('x-auth-token');
-            localStorage.clear();
+            const removeToken = sessionStorage.removeItem('x-auth-token');
+            sessionStorage.clear();
             navigate('/login');
         } catch (err) {
             console.log(err);
