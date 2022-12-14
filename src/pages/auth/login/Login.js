@@ -17,7 +17,7 @@ export const Login = () => {
     e.preventDefault();
 
     try {
-      const response = await api.post('api/login', {
+      const response = await axios.post('https://181.215.134.184:5000/api/login', {
         email,
         password,
       });
