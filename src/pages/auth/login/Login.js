@@ -17,15 +17,15 @@ export const Login = () => {
     e.preventDefault();
 
     try {
-      const response = await api.post('/api/login/', {
+      const res = await api.post('https://181.215.134.184:5000/api/login/', {
         email,
         password,
       });
 
       toast.dismiss();
-      toast.success(response.data.message);
-      sessionStorage.setItem('x-auth-token', response.data.data);
-      setCurrentUser(response.data.user);
+      toast.success(res.data.message);
+      sessionStorage.setItem('x-auth-token', res.data.data);
+      setCurrentUser(res.data.user);
       navigate('/');
     } catch (error) {
       toast.error("Deu algo errado!")
