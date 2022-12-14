@@ -37,7 +37,7 @@ export const AddInstallation = () => {
 
     useEffect(() => {
         const fetchTechnical = async () => {
-            const res = await api.get('/api/company/');
+            const res = await api.get('/api/company');
             setCompanies(res.data);
         };
         fetchTechnical();

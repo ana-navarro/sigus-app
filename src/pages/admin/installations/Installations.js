@@ -11,7 +11,7 @@ export const Installations = () => {
 
     useEffect(() => {
         const fetchInstallations = async () => {
-            const res = await api.get(`/api/installations_numbers/`);
+            const res = await api.get(`/api/installations_numbers`);
             setInstallations(res.data);
             setCurrentPage(1);
         }

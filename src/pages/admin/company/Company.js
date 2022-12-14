@@ -18,7 +18,7 @@ export const Company = () => {
 
     useEffect(() => {
         const fetchCompanies = async () => {
-            const response = await api.get("/api/company/");
+            const response = await api.get("/api/company");
             setData(response.data)
             setCurrentPage(1);
         }

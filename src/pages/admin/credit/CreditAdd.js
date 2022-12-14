@@ -39,7 +39,7 @@ export const CreditAdd = () => {
 
     useEffect(() => {
         const getInstallation = async () => {
-            const response = await api.get(`/api/installations_numbers/`);
+            const response = await api.get(`/api/installations_numbers`);
             setInstall(response.data);
         }
         getInstallation()
