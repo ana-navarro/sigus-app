@@ -9,14 +9,14 @@ import { CompanyProvider } from './context/Company';
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <BrowserRouter>
-        <UserProvider>
-          <CompanyProvider>
-            <CreditProvider>
-              <App />
-            </CreditProvider>
-          </CompanyProvider>
-        </UserProvider>
+    <BrowserRouter basename='/'>
+      <UserProvider>
+        <CompanyProvider>
+          <CreditProvider>
+            <App />
+          </CreditProvider>
+        </CompanyProvider>
+      </UserProvider>
     </BrowserRouter>
   </React.StrictMode>
 );
